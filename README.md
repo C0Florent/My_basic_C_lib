@@ -10,23 +10,37 @@ And this is where I'm at right now.
 
 
 # Quick description of each lib
-my: Functions made during the C pool, plus a few personal functions made during my first month at Epitech
+- my
+Functions made during the C pool, plus a few personal functions made during my first month at Epitech
 
-newmy: All-purpose functions that I now cannot live without. They are in the spirit of C pool, but made from personal involvement and perform more complex tasks such as handling string arrays.
-- Needs 'my'
 
-my_printf: Reproduction of the standard function printf, without buffer handling, and excluding %g and %a conversions. Also contains internal functions used to make my_printf() work
-- Needs 'my' and 'newmy'
+- newmy
+All-purpose functions that I now cannot live without. They are in the spirit of C pool, but made from personal involvement and perform more complex tasks such as handling string arrays.
+-- Needs 'my'
 
-mysys: Actually only contains one function, to return the size of any given file using stat
 
-my_math: A few functions and macros used for all math projects
-- Uses standard printf() and variants
+- my_printf
+Reproduction of the standard function printf, without buffer handling, and excluding %g and %a conversions. Also contains internal functions used to make my_printf() work
+-- Needs 'my' and 'newmy'
 
-my_vector: Minimalist implementation of vectors, with only functions to allocate, free, and show coordinates of vectors.
-- Uses standard printf()
 
-my_matrix: Proper implementation of matrices in C, with functions to allocate and free, show values with several display modes, set or reset values, and perform operations on matrices such as scalar, product and inverse.
-- Almost without any standard C functions, and mostly compliant with Epitech's coding style (soon to come)
+- mysys: Actually only contains one function, to return the size of any given file using stat
 
-my_graphics: Basic functions to facilitate the use of the CSFML library.
+
+- my_math:
+A few functions and macros used for all math projects
+-- Uses standard printf() and variants
+
+
+- my_vector
+Minimalist implementation of vectors, with only functions to allocate, free, and show coordinates of vectors.
+-- Uses standard printf()
+
+
+- my_matrix
+Proper implementation of matrices in C, with functions to allocate and free, show values with several display modes, set or reset values, and perform operations on matrices such as scalar, product and inverse.
+-- Almost without any standard C functions, and mostly compliant with Epitech's coding style (soon to come)
+
+
+- my_graphics
+Basic functions to facilitate the use of the CSFML library.
