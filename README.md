@@ -60,3 +60,8 @@ As of now, there is no proper documentation, but for functions that require expl
 # Testing ?
 
 Except for my_printf() which is all properly tested, most functions here do not have proper unit tests, and this is still something I have to do.
+
+
+# Reusing code/functions from my library
+
+I have detailed terms of use in the LICENSE.md text file, but to make it short, you are entirely free to look for inspiration and reuse any principle or brief idea used here for you purposes without hesitation, and you can even reuse entire functions (or even this entire library), as long as it is made clear that some parts of the code doesn't come from you (and which !)
