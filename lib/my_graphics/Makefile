@@ -8,7 +8,10 @@
 SRC	=	vctr.c							\
 		my_create_window.c				\
 		my_create_sprite_from_file.c	\
-		destroy_disp_sprt.c
+		destroy_disp_sprt.c				\
+		slidebar/create_slidebar.c		\
+		slidebar/display_slidebar.c		\
+		slidebar/destroy_slidebar.c
 
 OBJ	=	$(SRC:.c=.o)
 

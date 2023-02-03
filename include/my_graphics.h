@@ -16,7 +16,16 @@ typedef struct {
     sfSprite *sprt;
 } disp_sprt_t;
 
+typedef struct {
+    sfVector2f pos;
+    float cursor_pos;
+    sfRectangleShape *bar;
+    sfRectangleShape *cursor;
+} slidebar_t;
 
+
+
+sfRenderWindow *my_create_window(char const *window_name);
 
 sfVector2f vctr2f(float x, float y);
 sfVector2i vctr2i(int x, int y);
@@ -29,6 +38,10 @@ disp_sprt_t *my_create_sprite(char *txtr_path, float scale_x, float scale_y);
 void destroy_disp_sprt(disp_sprt_t *displayble_sprite);
 
 
-sfRenderWindow *my_create_window(char const *window_name);
+
+slidebar_t *create_slidebar(sfVector2f pos, sfVector2f bar_size);
+void display_slidebar(sfRenderWindow *window, slidebar_t const *slidebar);
+void destroy_slidebar(slidebar_t *sb);
+
 
 #endif /* !MY_GRAPHICS_H_ */
