@@ -33,7 +33,7 @@ sfVector2f bar_size, sfVector2f cursor_size)
     sfRectangleShape_setSize(sb->bar, bar_size);
     sfRectangleShape_setOutlineColor(sb->bar, sfBlack);
     sfRectangleShape_setOutlineThickness(sb->bar, 2);
-    sfRectangleShape_setFillColor(sb->bar, sfColor_fromInteger(0x444444FF));
+    sfRectangleShape_setFillColor(sb->bar, sfColor_fromInteger(0x444444BB));
     sfRectangleShape_setOutlineColor(sb->cursor, sfBlack);
     sfRectangleShape_setOutlineThickness(sb->cursor, 2);
     sfRectangleShape_setPosition(sb->cursor, cursor_pos);
