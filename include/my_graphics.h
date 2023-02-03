@@ -9,12 +9,17 @@
     #define MY_GRAPHICS_H_
 
     #include <SFML/Graphics/RenderWindow.h>
+    #include <SFML/System/Vector2.h>
 
 typedef struct {
     sfTexture *txtr;
     sfSprite *sprt;
 } disp_sprt_t;
 
+
+
+sfVector2f vctr2f(float x, float y);
+sfVector2i vctr2i(int x, int y);
 
 // Will create a displayable sprite, into a disp_sprt_t
 // structure, from a the filepath of the texture to use

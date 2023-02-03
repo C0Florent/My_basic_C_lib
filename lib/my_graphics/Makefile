@@ -5,7 +5,8 @@
 ## Compiles the my_graphics library
 ##
 
-SRC	=	my_create_window.c				\
+SRC	=	vctr.c							\
+		my_create_window.c				\
 		my_create_sprite_from_file.c	\
 		destroy_disp_sprt.c
 
