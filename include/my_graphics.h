@@ -19,7 +19,6 @@ typedef struct {
 
 typedef struct {
     bool is_grabbed;
-    sfVector2f pos;
     float cursor_pos;
     sfRectangleShape *bar;
     sfRectangleShape *cursor;

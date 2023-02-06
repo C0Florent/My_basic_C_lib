@@ -29,7 +29,6 @@ sfVector2f bar_size, sfVector2f cursor_size)
 
     cursor_pos.x += bar_size.x / 2 - cursor_size.x / 2;
     cursor_pos.y += bar_size.y / 2 - cursor_size.y / 2;
-    sb->pos = pos;
     sfRectangleShape_setPosition(sb->bar, pos);
     sfRectangleShape_setSize(sb->bar, bar_size);
     sfRectangleShape_setOutlineColor(sb->bar, sfBlack);
