@@ -25,6 +25,8 @@ slidebar_t *allocate_slidebar(void)
 void init_slidebar(slidebar_t *sb, sfVector2f sb_pos,
 sfVector2f bar_size, sfVector2f cursor_size)
 {
+    sb->center = sb_pos;
+    sb->bar_size = bar_size;
     sfRectangleShape_setOrigin(sb->bar, scalar_v2f(bar_size, 0.5));
     sfRectangleShape_setOrigin(sb->cursor, scalar_v2f(cursor_size, 0.5));
     sfRectangleShape_setPosition(sb->bar, sb_pos);

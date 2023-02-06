@@ -20,6 +20,8 @@ typedef struct {
 typedef struct {
     bool is_grabbed;
     float cursor_pos;
+    sfVector2f center;
+    sfVector2f bar_size;
     sfRectangleShape *bar;
     sfRectangleShape *cursor;
 } slidebar_t;

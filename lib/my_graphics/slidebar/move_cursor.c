@@ -12,12 +12,10 @@
 static bool is_click_on_cursor(slidebar_t const *sb,
 sfMouseButtonEvent mouse_pos)
 {
-    sfFloatRect cursor_hitbox = sfRectangleShape_getGlobalBounds(sb->cursor);
-
-    if (mouse_pos.x >= cursor_hitbox.left
-    && mouse_pos.x <= cursor_hitbox.left + cursor_hitbox.width
-    && mouse_pos.y >= cursor_hitbox.top
-    && mouse_pos.y <= cursor_hitbox.top + cursor_hitbox.height) {
+    if (mouse_pos.x >= sb->center.x - sb->bar_size.x / 2
+    && mouse_pos.x <= sb->center.x + sb->bar_size.x / 2
+    && mouse_pos.y >= sb->center.y - sb->bar_size.y / 2
+    && mouse_pos.y <= sb->center.y + sb->bar_size.y / 2) {
         return (true);
     } else {
         return (false);
