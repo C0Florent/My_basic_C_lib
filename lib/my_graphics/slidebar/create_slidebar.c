@@ -22,14 +22,14 @@ slidebar_t *allocate_slidebar(void)
     return (ret);
 }
 
-void init_slidebar(slidebar_t *sb, sfVector2f pos,
+void init_slidebar(slidebar_t *sb, sfVector2f bar_pos,
 sfVector2f bar_size, sfVector2f cursor_size)
 {
-    sfVector2f cursor_pos = pos;
+    sfVector2f cursor_pos = bar_pos;
 
     cursor_pos.x += bar_size.x / 2 - cursor_size.x / 2;
     cursor_pos.y += bar_size.y / 2 - cursor_size.y / 2;
-    sfRectangleShape_setPosition(sb->bar, pos);
+    sfRectangleShape_setPosition(sb->bar, bar_pos);
     sfRectangleShape_setSize(sb->bar, bar_size);
     sfRectangleShape_setOutlineColor(sb->bar, sfBlack);
     sfRectangleShape_setOutlineThickness(sb->bar, 2);
