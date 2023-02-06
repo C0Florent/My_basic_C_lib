@@ -8,6 +8,7 @@
 #ifndef MY_GRAPHICS_H_
     #define MY_GRAPHICS_H_
 
+    #include <stdbool.h>
     #include <SFML/Graphics/RenderWindow.h>
     #include <SFML/System/Vector2.h>
 
@@ -17,6 +18,7 @@ typedef struct {
 } disp_sprt_t;
 
 typedef struct {
+    bool is_grabbed;
     sfVector2f pos;
     float cursor_pos;
     sfRectangleShape *bar;

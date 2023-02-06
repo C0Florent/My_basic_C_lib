@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+#include <stdbool.h>
 #include <SFML/Graphics/RectangleShape.h>
 #include "my_graphics.h"
 
@@ -38,6 +39,7 @@ sfVector2f bar_size, sfVector2f cursor_size)
     sfRectangleShape_setOutlineThickness(sb->cursor, 2);
     sfRectangleShape_setPosition(sb->cursor, cursor_pos);
     sfRectangleShape_setSize(sb->cursor, cursor_size);
+    sb->is_grabbed = false;
 }
 
 slidebar_t *create_slidebar(sfVector2f pos, sfVector2f bar_size)

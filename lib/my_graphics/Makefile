@@ -11,6 +11,7 @@ SRC	=	vctr.c							\
 		destroy_disp_sprt.c				\
 		slidebar/create_slidebar.c		\
 		slidebar/display_slidebar.c		\
+		slidebar/move_cursor.c			\
 		slidebar/destroy_slidebar.c
 
 OBJ	=	$(SRC:.c=.o)
