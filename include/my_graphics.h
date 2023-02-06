@@ -28,8 +28,9 @@ typedef struct {
 
 sfRenderWindow *my_create_window(char const *window_name);
 
-sfVector2f vctr2f(float x, float y);
 sfVector2i vctr2i(int x, int y);
+sfVector2f vctr2f(float x, float y);
+sfVector2f scalar_v2f(sfVector2f vector, float scalar);
 
 // Will create a displayable sprite, into a disp_sprt_t
 // structure, from a the filepath of the texture to use

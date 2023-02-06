@@ -22,22 +22,20 @@ slidebar_t *allocate_slidebar(void)
     return (ret);
 }
 
-void init_slidebar(slidebar_t *sb, sfVector2f bar_pos,
+void init_slidebar(slidebar_t *sb, sfVector2f sb_pos,
 sfVector2f bar_size, sfVector2f cursor_size)
 {
-    sfVector2f cursor_pos = bar_pos;
-
-    cursor_pos.x += bar_size.x / 2 - cursor_size.x / 2;
-    cursor_pos.y += bar_size.y / 2 - cursor_size.y / 2;
-    sfRectangleShape_setPosition(sb->bar, bar_pos);
+    sfRectangleShape_setOrigin(sb->bar, scalar_v2f(bar_size, 0.5));
+    sfRectangleShape_setOrigin(sb->cursor, scalar_v2f(cursor_size, 0.5));
+    sfRectangleShape_setPosition(sb->bar, sb_pos);
+    sfRectangleShape_setPosition(sb->cursor, sb_pos);
     sfRectangleShape_setSize(sb->bar, bar_size);
-    sfRectangleShape_setOutlineColor(sb->bar, sfBlack);
-    sfRectangleShape_setOutlineThickness(sb->bar, 2);
-    sfRectangleShape_setFillColor(sb->bar, sfColor_fromInteger(0x444444BB));
-    sfRectangleShape_setOutlineColor(sb->cursor, sfBlack);
-    sfRectangleShape_setOutlineThickness(sb->cursor, 2);
-    sfRectangleShape_setPosition(sb->cursor, cursor_pos);
     sfRectangleShape_setSize(sb->cursor, cursor_size);
+    sfRectangleShape_setOutlineColor(sb->bar, sfBlack);
+    sfRectangleShape_setOutlineColor(sb->cursor, sfBlack);
+    sfRectangleShape_setOutlineThickness(sb->bar, 2);
+    sfRectangleShape_setOutlineThickness(sb->cursor, 2);
+    sfRectangleShape_setFillColor(sb->bar, sfColor_fromInteger(0x444444BB));
     sb->is_grabbed = false;
 }
 
