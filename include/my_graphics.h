@@ -29,6 +29,9 @@ typedef struct {
 typedef struct {
     bool is_grabbed;
     float cursor_pos;
+    float value;
+    float min_val;
+    float max_val;
     sfVector2f center;
     sfVector2f bar_size;
     sfRectangleShape *bar;
@@ -64,6 +67,7 @@ void display_slidebar(sfRenderWindow *window, slidebar_t const *slidebar);
 void destroy_slidebar(slidebar_t *sb);
 
 
+void slidebar_set_min_max_values(slidebar_t *sb, float min, float max);
 void slidebar_cursor_set_pos(slidebar_t *sb, float pos);
 void slidebar_cursor_set_pos_from_mouse_pos(slidebar_t * sb,
 sfMouseButtonEvent const *click_pos);

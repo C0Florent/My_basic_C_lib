@@ -12,6 +12,7 @@ SRC	=	vctr.c							\
 		slidebar/create_slidebar.c		\
 		slidebar/display_slidebar.c		\
 		slidebar/move_cursor.c			\
+		slidebar/set_min_max.c			\
 		slidebar/set_cursor_pos_val.c	\
 		slidebar/destroy_slidebar.c
 

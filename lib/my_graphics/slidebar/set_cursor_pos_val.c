@@ -22,4 +22,6 @@ void slidebar_cursor_set_pos(slidebar_t *sb, float pos)
     sb->cursor_pos = pos;
     sfRectangleShape_setPosition(sb->cursor,
         vctr2f(sb->center.x + pos, sb->center.y));
+    sb->value = ((sb->max_val - sb->min_val) / sb->bar_size.x)
+    * (pos + sb->bar_size.x / 2.0) + sb->min_val;
 }
