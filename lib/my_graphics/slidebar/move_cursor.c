@@ -9,6 +9,9 @@
 #include <SFML/Graphics/RectangleShape.h>
 #include "my_graphics.h"
 
+
+#include <stdio.h>
+
 static bool is_click_on_cursor(slidebar_t *sb,
 sfMouseButtonEvent const *mouse_pos)
 {
@@ -30,6 +33,9 @@ static bool is_able_to_move_cursor(slidebar_t *sb, sfEvent const *event)
     }
     if (event->type == sfEvtMouseButtonPressed) {
         sb->is_grabbed = is_click_on_cursor(sb, &event->mouseButton);
+        if (sb->is_grabbed) {
+            slidebar_cursor_set_pos_from_mouse_pos(sb, &event->mouseButton);
+        }
         return (false);
     }
     if (event->type == sfEvtMouseMoved) {
@@ -66,4 +72,5 @@ void move_cursor(slidebar_t *sb, sfEvent const *event)
     if (is_able_to_move_cursor(sb, event) == false) {
         return;
     }
+    slidebar_cursor_set_pos(sb, event->mouseMove.x - sb->center.x);
 }

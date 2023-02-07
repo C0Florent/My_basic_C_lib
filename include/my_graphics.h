@@ -12,6 +12,11 @@
     #include <SFML/Graphics/RenderWindow.h>
     #include <SFML/System/Vector2.h>
 
+
+    #ifndef ABS
+        #define ABS(val)    (((val) < 0) ? (-(val)) : (val))
+    #endif /* ABS */
+
 typedef struct {
     sfTexture *txtr;
     sfSprite *sprt;
@@ -46,6 +51,11 @@ void destroy_disp_sprt(disp_sprt_t *displayble_sprite);
 slidebar_t *create_slidebar(sfVector2f pos, sfVector2f bar_size);
 void display_slidebar(sfRenderWindow *window, slidebar_t const *slidebar);
 void destroy_slidebar(slidebar_t *sb);
+
+void slidebar_cursor_set_pos(slidebar_t *sb, float pos);
+void slidebar_cursor_set_pos_from_mouse_pos(slidebar_t * sb,
+sfMouseButtonEvent const *click_pos);
+void slidebar_cursor_set_value(slidebar_t *sb, float value);
 
 
 #endif /* !MY_GRAPHICS_H_ */
