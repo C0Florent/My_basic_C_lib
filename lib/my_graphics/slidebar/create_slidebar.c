@@ -9,6 +9,7 @@
 #include <stdbool.h>
 #include <SFML/Graphics/RectangleShape.h>
 #include "my_graphics.h"
+#include "my_slidebar.h"
 
 slidebar_t *allocate_slidebar(void)
 {

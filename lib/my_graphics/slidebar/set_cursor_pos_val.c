@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics/RectangleShape.h>
 #include "my_graphics.h"
+#include "my_slidebar.h"
 
 void slidebar_cursor_set_pos_from_mouse_pos(slidebar_t *sb,
 sfMouseButtonEvent const *click_pos)

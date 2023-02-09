@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 #include <SFML/Graphics/RectangleShape.h>
-#include "my_graphics.h"
+#include "my_slidebar.h"
 
 void destroy_slidebar(slidebar_t *sb)
 {

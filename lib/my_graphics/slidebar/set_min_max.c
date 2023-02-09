@@ -5,7 +5,7 @@
 ** Function to set the minimum and maximum values for a slidebar
 */
 
-#include "my_graphics.h"
+#include "my_slidebar.h"
 
 void slidebar_set_min_max_values(slidebar_t *sb, float min, float max)
 {
