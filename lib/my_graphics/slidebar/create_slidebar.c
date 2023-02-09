@@ -29,7 +29,7 @@ sfVector2f bar_size, sfVector2f cursor_size)
     sb->center = sb_pos;
     sb->bar_size = bar_size;
     sb->value = 50;
-    slidebar_set_min_max_values(sb, 0, 100);
+    slidebar_set_bound_values(sb, 0, 100, RESET_NONE);
     sfRectangleShape_setOrigin(sb->bar, scalar_v2f(bar_size, 0.5));
     sfRectangleShape_setOrigin(sb->cursor, scalar_v2f(cursor_size, 0.5));
     sfRectangleShape_setPosition(sb->bar, sb_pos);
