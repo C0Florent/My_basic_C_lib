@@ -7,7 +7,7 @@
 
 #include <stdarg.h>
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 
 static int cut_the_string (conv_det_t *convert, char *str)
 {

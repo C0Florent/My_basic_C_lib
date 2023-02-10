@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "my_printf.h"
+#include "my_printf_internal.h"
 #include "newmy.h"
 #include "my.h"
 

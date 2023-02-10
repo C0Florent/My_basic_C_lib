@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 #include "newmy.h"
 
 static int add_decimal_dot(char *final_str, conv_det_t *details)

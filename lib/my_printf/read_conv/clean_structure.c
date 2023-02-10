@@ -5,7 +5,7 @@
 ** clean the structure
 */
 
-#include "my_printf.h"
+#include "my_printf_internal.h"
 #include "my.h"
 
 void clean_struct(conv_det_t *structure)

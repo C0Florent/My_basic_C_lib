@@ -6,7 +6,7 @@
 ** a floating point number in a given string
 */
 
-#include "my_printf.h"
+#include "my_printf_internal.h"
 #include "my.h"
 
 static int save_one_digit(double *nb, char *buf, int exponent)

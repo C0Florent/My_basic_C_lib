@@ -8,7 +8,7 @@
 
 #include <stdbool.h>
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 
 void initialise_structure(conv_det_t *conv_struct)
 {

@@ -7,7 +7,7 @@
 */
 
 #include <stdlib.h>
-#include "my_printf.h"
+#include "my_printf_internal.h"
 #include "my.h"
 
 int fill_width_u(char *final_str, conv_det_t *det)

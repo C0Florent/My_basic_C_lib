@@ -7,7 +7,6 @@
 */
 
 #include "my.h"
-#include "my_printf.h"
 
 int add_precision(char *final_str, int precision)
 {

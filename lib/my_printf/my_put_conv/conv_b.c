@@ -7,7 +7,7 @@
 
 #include <stdarg.h>
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 #include "newmy.h"
 
 int my_put_conv_b(__attribute__((unused)) conv_det_t *details,

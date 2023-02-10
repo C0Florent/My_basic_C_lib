@@ -8,7 +8,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 #include "newmy.h"
 
 static int add_octal_altform(char *final_str, int altform)

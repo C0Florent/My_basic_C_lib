@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 
 static const put_conv_ptr_t conv_funcs[] = {
     {&my_put_conv_i, 'i'},

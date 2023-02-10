@@ -7,7 +7,7 @@
 
 #include <stdarg.h>
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 
 int my_put_conv_p(conv_det_t *details, va_list *arguments, int *count)
 {

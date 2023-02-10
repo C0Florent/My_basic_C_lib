@@ -6,7 +6,6 @@
 */
 
 #include "my.h"
-#include "my_printf.h"
 #include <stdarg.h>
 
 long long next_arg_lli(va_list *arguments)

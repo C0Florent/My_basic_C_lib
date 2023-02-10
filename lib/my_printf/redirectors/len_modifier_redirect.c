@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include <stdarg.h>
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 
 static const signed_len_redir_t redir_funcs_signed[] = {
     {&next_arg_hhi, "hh"},

@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 
 int put_char_space(int nb)
 {

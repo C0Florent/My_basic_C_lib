@@ -6,7 +6,6 @@
 */
 
 #include "my.h"
-#include "my_printf.h"
 
 int my_float_int_part_size(double nb, int base)
 {

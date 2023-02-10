@@ -7,7 +7,7 @@
 */
 
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 
 int my_get_o_total_size(unsigned long long nb, conv_det_t *details)
 {

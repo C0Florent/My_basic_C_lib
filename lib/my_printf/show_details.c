@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include "my.h"
-#include "my_printf.h"
+#include "my_printf_internal.h"
 #include "newmy.h"
 
 #define my_put_nbr(nbr) mega_put_nbr((nbr), 10)
