@@ -11,19 +11,17 @@
 
 int my_put_conv_c(conv_det_t *details, va_list *arguments)
 {
-    unsigned int count = 0;
+    int spaces_to_print = details->width - 1;
+    char to_print = (char)(va_arg(*arguments, int));
 
-    if (details->width > 1 && details->dash_flag != 0) {
-        my_putchar(va_arg(*arguments, int));
-        count++;
-            for (int i = 0; i < details->width; i++) {
-                my_putchar(' ');
-                count++;
-            }
-        return (count);
-    } else {
-        my_putchar(va_arg(*arguments, int));
-        count++;
+    if (details->dash_flag) {
+        my_putchar(to_print);
     }
-    return (count);
+    for (int i = 0; i < spaces_to_print - 1; i++) {
+        my_putchar(' ');
+    }
+    if (!details->dash_flag) {
+        my_putchar(to_print);
+    }
+    return (details->width);
 }
