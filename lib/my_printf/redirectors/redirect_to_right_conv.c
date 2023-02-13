@@ -31,7 +31,7 @@ int redirect_to_right_conv(conv_det_t *details, va_list *arguments, int *count)
 {
     for (size_t i = 0; conv_funcs[i].fptr != NULL; i++) {
         if (conv_funcs[i].conversion == details->conversion) {
-            (*count) += conv_funcs[i].fptr(details, arguments, count);
+            (*count) += conv_funcs[i].fptr(details, arguments);
             return (0);
         }
     }

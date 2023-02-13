@@ -9,20 +9,21 @@
 #include "my.h"
 #include "my_printf_internal.h"
 
-int my_put_conv_c(conv_det_t *details, va_list *arguments, int *count)
+int my_put_conv_c(conv_det_t *details, va_list *arguments)
 {
+    unsigned int count = 0;
+
     if (details->width > 1 && details->dash_flag != 0) {
         my_putchar(va_arg(*arguments, int));
-        (*count)++;
-        int a = details->width;
-            for (int i = 0; i < a; i++) {
+        count++;
+            for (int i = 0; i < details->width; i++) {
                 my_putchar(' ');
-                (*count)++;
+                count++;
             }
-        return (0);
+        return (count);
     } else {
         my_putchar(va_arg(*arguments, int));
-        (*count)++;
+        count++;
     }
-    return 0;
+    return (count);
 }

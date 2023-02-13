@@ -57,37 +57,37 @@ int with_dash (conv_det_t *conv, int nb, int num, char *str)
     return 0;
 }
 
-int basics_test (conv_det_t *convert, char *str, int nb, int *count)
+int basics_test(conv_det_t *convert, char *str, int nb)
 {
     if (convert->dash_flag == 0 && convert->width == 0
         && convert->precision == -1)
-        (*count) += my_putstr(str);
+        my_putstr(str);
     if (convert->dash_flag == 1 && convert->width != 0
         && convert->precision == -1) {
-        (*count) += my_putstr(str);
+        my_putstr(str);
         if (nb > 0)
-            (*count) += put_char_space(nb);
+            put_char_space(nb);
     }
     if (convert->dash_flag == 0 && convert->width != 0
         && convert->precision == -1 && nb > 0) {
-        (*count) += put_char_space(nb);
-        (*count) += my_putstr(str);
+        put_char_space(nb);
+        my_putstr(str);
     }
     if (convert->dash_flag == 0 && convert->width != 0
         && nb < 0 && convert->precision == -1) {
-        (*count) += my_putstr(str);
+        my_putstr(str);
     }
     return 0;
 }
 
-int my_put_conv_s(conv_det_t *details, va_list *arguments, int *count)
+int my_put_conv_s(conv_det_t *details, va_list *arguments)
 {
     char *str = va_arg(*arguments, char *);
     int size_str = my_strlen(str);
     int size_space = details->width - size_str;
     int space = details->width - details->precision;
 
-    basics_test(details, str, size_space, count);
+    basics_test(details, str, size_space);
     if (details->width != 0 && details->precision != -1) {
         with_dash(details, size_str, space, str);
         without_dash(details, size_str, space, str);
@@ -97,7 +97,6 @@ int my_put_conv_s(conv_det_t *details, va_list *arguments, int *count)
             cut_the_string(details, str);
         if (details->precision > size_str) {
             my_putstr(str);
-            (*count) += my_strlen(str);
         }
     }
     return 0;

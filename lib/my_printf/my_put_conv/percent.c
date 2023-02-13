@@ -10,9 +10,8 @@
 #include "my_printf_internal.h"
 
 int my_put_conv_percent(__attribute__((unused)) conv_det_t *details,
-    __attribute__((unused)) va_list *arguments, int *count)
+    __attribute__((unused)) va_list *arguments)
 {
     my_putchar('%');
-    (*count)++;
-    return 1;
+    return (1);
 }

@@ -20,7 +20,7 @@ static int add_octal_altform(char *final_str, int altform)
     return (0);
 }
 
-int my_put_conv_o(conv_det_t *details, va_list *arguments, int *count)
+int my_put_conv_o(conv_det_t *details, va_list *arguments)
 {
     unsigned long long nb_to_put = redirect_unsigned(details, arguments);
     int final_conv_size = my_get_o_total_size(nb_to_put, details);
@@ -35,6 +35,5 @@ int my_put_conv_o(conv_det_t *details, va_list *arguments, int *count)
     fill_width_u(final_str, details);
     my_putstr(final_str);
     free(final_str);
-    *count += final_conv_size;
     return (final_conv_size);
 }

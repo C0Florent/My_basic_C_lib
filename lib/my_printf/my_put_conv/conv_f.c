@@ -38,7 +38,7 @@ static int add_sign_or_blank(char *final_str, double nb, conv_det_t *details)
     return (0);
 }
 
-int my_put_conv_f(conv_det_t *details, va_list *arguments, int *count)
+int my_put_conv_f(conv_det_t *details, va_list *arguments)
 {
     double nb = va_arg(*arguments, double);
     int total_size = my_get_f_total_size(nb, details);
@@ -53,6 +53,5 @@ int my_put_conv_f(conv_det_t *details, va_list *arguments, int *count)
     my_putstr(final_str);
     len = my_strlen(final_str);
     free(final_str);
-    *count += len;
     return (len);
 }

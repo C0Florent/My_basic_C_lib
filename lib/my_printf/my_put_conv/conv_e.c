@@ -65,7 +65,7 @@ static int finish_conv_e(char *final_str, double nb, conv_det_t *details,
     return (0);
 }
 
-int my_put_conv_e(conv_det_t *details, va_list *arguments, int *count)
+int my_put_conv_e(conv_det_t *details, va_list *arguments)
 {
     double nb = va_arg(*arguments, double);
     int size = my_get_e_total_size(nb, details);
@@ -84,7 +84,7 @@ int my_put_conv_e(conv_det_t *details, va_list *arguments, int *count)
         final_str[details->precision + 1] = '\0';
     }
     finish_conv_e(final_str, nb, details, exponent);
-    *count += my_strlen(final_str);
+    size = my_strlen(final_str);
     free(final_str);
-    return (0);
+    return (size);
 }

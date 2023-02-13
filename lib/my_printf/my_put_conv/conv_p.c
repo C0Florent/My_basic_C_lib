@@ -9,10 +9,10 @@
 #include "my.h"
 #include "my_printf_internal.h"
 
-int my_put_conv_p(conv_det_t *details, va_list *arguments, int *count)
+int my_put_conv_p(conv_det_t *details, va_list *arguments)
 {
     details->len_modifier[0] = 'v';
     details->len_modifier[1] = '*';
     details->is_alt_form = 1;
-    return (my_put_conv_x(details, arguments, count));
+    return (my_put_conv_x(details, arguments));
 }

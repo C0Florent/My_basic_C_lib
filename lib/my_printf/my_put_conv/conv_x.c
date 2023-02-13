@@ -21,7 +21,7 @@ static int add_hex_altform(char *final_str, conv_det_t *details)
     return (0);
 }
 
-int my_put_conv_x(conv_det_t *details, va_list *arguments, int *count)
+int my_put_conv_x(conv_det_t *details, va_list *arguments)
 {
     unsigned long long nb_to_put = redirect_unsigned(details, arguments);
     int final_conv_size = my_get_x_total_size(nb_to_put, details);
@@ -38,6 +38,5 @@ int my_put_conv_x(conv_det_t *details, va_list *arguments, int *count)
         my_strupcase(final_str);
     my_putstr(final_str);
     free(final_str);
-    *count += final_conv_size;
     return (final_conv_size);
 }
