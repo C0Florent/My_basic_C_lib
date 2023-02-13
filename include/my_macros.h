@@ -8,7 +8,9 @@
 #ifndef MY_MACROS_H_
     #define MY_MACROS_H_
 
-    #define ABS(val)    (((val) < 0) ? (-(val)) : (val))
+    #ifndef ABS
+        #define ABS(val)    (((val) < 0) ? (-(val)) : (val))
+    #endif /* ABS */
     #define MAX(a, b)   (((a) > (b)) ? (a) : (b))
     #define MIN(a, b)   (((a) < (b)) ? (a) : (b))
 
