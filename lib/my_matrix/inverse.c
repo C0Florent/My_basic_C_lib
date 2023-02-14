@@ -8,18 +8,26 @@
 #include <stdio.h>
 #include "my_matrix.h"
 
+static bool are_args_valid(matrix_t const *src, matrix_t const *dest)
+{
+    if (src == NULL || dest == NULL) {
+        dprintf(2, "inverse: either src or dest is null\n");
+        return (false);
+    }
+    if (src->height != src->width || src->width != dest->width ||
+    src->height != dest->height) {
+        dprintf(2, "inverse: invalid matrix size\n");
+        return (false);
+    }
+    return (true);
+}
+
 int inverse(matrix_t const *src, matrix_t *dest)
 {
     matrix_t *dup;
     double det;
 
-    if (src == NULL || dest == NULL) {
-        dprintf(2, "inverse: either src or dest is null\n");
-        return (84);
-    }
-    if (src->height != src->width || src->width != dest->width ||
-    src->height != dest->height) {
-        dprintf(2, "inverse: invalid matrix size\n");
+    if (are_args_valid == false) {
         return (84);
     }
     dup = matrix_dup(src);
