@@ -44,7 +44,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	libmy.a
 
-CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include -g
+CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include
 
 all:	$(NAME)
 
