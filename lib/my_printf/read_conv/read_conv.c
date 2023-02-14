@@ -38,7 +38,7 @@ int read_conv(char *conv, conv_det_t *conv_details, va_list *args)
     char *convert;
 
     initialise_structure(conv_details);
-    while (!my_char_is_in_list(conv[len], "iduoxXfFeEcsp%") && conv[len++]);
+    while (!my_char_is_in_list(conv[len], "iduboxXfFeEcsp%") && conv[len++]);
     convert = my_strndup(&conv[1], len);
     browse_conv(convert, conv_details, args);
     conv_details->conversion = convert[len -1];
