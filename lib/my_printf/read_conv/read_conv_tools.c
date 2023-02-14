@@ -8,14 +8,6 @@
 #include "my.h"
 #include "my_printf_internal.h"
 
-int put_char_space(int nb)
-{
-    for (int i = 0; i < nb; i++) {
-        my_putchar(' ');
-    }
-    return (0);
-}
-
 void read_flag(conv_det_t *details, char flag_to_add)
 {
     switch (flag_to_add) {
