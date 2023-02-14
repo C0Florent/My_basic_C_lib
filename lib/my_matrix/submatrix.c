@@ -29,6 +29,15 @@ matrix_t *submx)
     return (false);
 }
 
+static unsigned int next(unsigned int current, unsigned int to_avoid)
+{
+    if (current + 1 == to_avoid) {
+        return (current + 2);
+    } else {
+        return (current + 1);
+    }
+}
+
 void submatrix(matrix_t const *m, unsigned int row, unsigned int col,
 matrix_t *submatrix)
 {
@@ -38,14 +47,8 @@ matrix_t *submatrix)
     if (check_errors(m, row, col, submatrix) == true) {
         return;
     }
-    for (unsigned int i = 0; i < m->height; i++) {
-        if (i == row) {
-            continue;
-        }
-        for (unsigned int j = 0; j < m->width; j++) {
-            if (j == col) {
-                continue;
-            }
+    for (unsigned int i = 0; i < m->height; i = next(i, row)) {
+        for (unsigned int j = 0; j < m->width; j = next(j, col)) {
             submatrix->coords[matrix_h_index][matrix_w_index] = m->coords[i][j];
             matrix_w_index++;
         }

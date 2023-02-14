@@ -1,28 +1,33 @@
+/*
+** EPITECH PROJECT, 2023
+** Show_details
+** File description:
+** Function to print one by one all the fiels of a conv_det_t structure
+*/
+
 #include <unistd.h>
 #include "my.h"
 #include "my_printf_internal.h"
 #include "newmy.h"
-
-#define my_put_nbr(nbr) mega_put_nbr((nbr), 10)
 
 int show_details(conv_det_t *d)
 {
     my_putstr("Detected conversion : ");
     my_putchar(d->conversion);
     my_putstr("\nDetected altform : ");
-    my_put_nbr(d->is_alt_form);
+    mega_put_nbr(d->is_alt_form, 10);
     my_putstr("\nDetected 0 flag : ");
-    my_put_nbr(d->zero_flag);
+    mega_put_nbr(d->zero_flag, 10);
     my_putstr("\nDetected - flag : ");
-    my_put_nbr(d->dash_flag);
+    mega_put_nbr(d->dash_flag, 10);
     my_putstr("\nDetected + flag : ");
-    my_put_nbr(d->plus_flag);
+    mega_put_nbr(d->plus_flag, 10);
     my_putstr("\nDetected ' ' flag : ");
-    my_put_nbr(d->space_flag);
+    mega_put_nbr(d->space_flag, 10);
     my_putstr("\nDetected Width : ");
-    my_put_nbr(d->width);
+    mega_put_nbr(d->width, 10);
     my_putstr("\nDetected Precision : ");
-    my_put_nbr(d->precision);
+    mega_put_nbr(d->precision, 10);
     my_putstr("\nDetected length modifier : ");
     write(1, &d->len_modifier[0], 2);
     my_putchar('\n');
