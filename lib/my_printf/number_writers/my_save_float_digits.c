@@ -14,8 +14,9 @@ static int save_one_digit(double *nb, char *buf, int exponent)
     double power = my_compute_float_power(10.0, exponent);
     int i = 0;
 
-    for (i = 0; my_float_int_part_size(*nb, 10) - 1 == exponent; i++) {
+    while (my_float_int_part_size(*nb, 10) - 1 >= exponent && i < 9) {
         *nb -= power;
+        i++;
     }
     my_charcat(buf, (char)(i + '0'));
     return (0);
@@ -52,10 +53,12 @@ int my_save_float_digits(double nb, int precision, char *buf)
         my_charcat(buf, '0');
         size = 0;
     }
-    for (i = size - 1; i >= - precision; i--)
+    for (i = size - 1; i >= - precision; i--) {
         save_one_digit(&nb, buf, i);
+    }
     save_one_digit(&nb, last_digit, i);
-    if (last_digit[0] >= '5')
+    if (last_digit[0] >= '5') {
         do_roundup(buf, my_strlen(buf) - 1);
+    }
     return (0);
 }
