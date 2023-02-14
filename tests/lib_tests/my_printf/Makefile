@@ -18,7 +18,8 @@ TESTSRC	=	length_tests.c				\
 			test_mega_save_nbr.c		\
 			test_my_printf.c			\
 			test_other_my_printf.c		\
-			width_tests.c
+			width_tests.c				\
+			return_value_tests.c
 
 
 LIBPATH		=	../../../lib
@@ -78,3 +79,5 @@ run_test:
 
 clean:
 	rm -f *gcno *gcda $(TEST_NAME)
+
+re:	clean all
