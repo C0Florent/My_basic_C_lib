@@ -38,3 +38,11 @@ Test(my_get_nbrsize, huge_nbr_octal) {
 Test(my_get_nbrsize, hexadecimal) {
     cr_assert_eq(my_get_nbrsize(0xa45df486e456c, 16), 13);
 }
+
+Test(my_get_nbrsize, invalid_base) {
+    cr_assert_eq(my_get_nbrsize(0xa45df486e456c, 1), -84);
+}
+
+Test(my_float_int_part_size, invalid_base) {
+    cr_assert_eq(my_float_int_part_size(0xa45df486e456c, 1), -84);
+}

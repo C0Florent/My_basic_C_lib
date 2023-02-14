@@ -47,7 +47,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	libmy_printf.a
 
-CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include -L.. -lmy -g
+CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include -L.. -lmy
 
 all:	$(NAME)
 

@@ -10,6 +10,11 @@
 #include "include_test.h"
 #include "my_printf.h"
 
+Test(my_printf, flag_percent, .init = redirect_all_std) {
+    my_printf("%%");
+    cr_assert_stdout_eq_str("%");
+}
+
 Test(my_printf, flag_s, .init = redirect_all_std) {
     my_printf("%s", "hello world");
     cr_assert_stdout_eq_str("hello world");
@@ -50,6 +55,11 @@ Test(my_printf, flag_e, .init = redirect_all_std) {
     cr_assert_stdout_eq_str("-1.452300e+02");
 }
 
+Test(my_printf, flag_e_huuuge, .init = redirect_all_std) {
+    my_printf("%e", 1.42e143);
+    cr_assert_stdout_eq_str("1.420000e+143");
+}
+
 Test(my_printf, flag_E, .init = redirect_all_std) {
     my_printf("%E", -145.23);
     cr_assert_stdout_eq_str("-1.452300E+02");
@@ -58,6 +68,11 @@ Test(my_printf, flag_E, .init = redirect_all_std) {
 Test(my_printf, flag_f, .init = redirect_all_std) {
     my_printf("%f", -5.3);
     cr_assert_stdout_eq_str("-5.300000");
+}
+
+Test(my_printf, flag_f_less_than_zero, .init = redirect_all_std) {
+    my_printf("%f", 0.2);
+    cr_assert_stdout_eq_str("0.200000");
 }
 
 Test(my_printf, flag_c, .init = redirect_all_std) {
@@ -81,6 +96,12 @@ Test(my_printf, flag_p, .init = redirect_all_std) {
     sprintf(buf, "%p", &test);
     my_printf("%p", &test);
     cr_assert_stdout_eq_str(buf);
+}
+
+Test(my_printf, flag_b, .init = redirect_all_std) {
+    my_printf("%b", 0b1010001101);
+
+    cr_assert_stdout_eq_str("1010001101");
 }
 /*
 Test(my_printf, flag_n_alone, .init = redirect_all_std) {
