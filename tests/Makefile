@@ -28,6 +28,12 @@ TESTS_CLEAN_CMD	=	`echo "S$(TEST_DIRS)" |	\
 		sed "s/ / ; make tests_clean -C /g" | \
 		sed "s/S/make tests_clean -C /"`
 
+
+
+#########################
+# Rules                 #
+#########################
+
 tests_clean:
 	@echo $(TESTS_CLEAN_CMD)
 	@eval $(TESTS_CLEAN_CMD)
