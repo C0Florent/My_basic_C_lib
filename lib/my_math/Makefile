@@ -13,7 +13,12 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	libmy_math.a
 
-CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include
+## By default, there are no additional CFLAGS, this
+## variable is there to allow other Makefiles calling
+## this one to add CFLAGS such as -g or --coverage
+ADDITIONAL_CFLAGS	=
+
+CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include  $(ADDITIONAL_CFLAGS)
 
 all:	$(NAME)
 

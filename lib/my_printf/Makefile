@@ -47,7 +47,13 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	libmy_printf.a
 
-CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include -L.. -lmy
+## By default, there are no additional CFLAGS, this
+## variable is there to allow other Makefiles calling
+## this one to add CFLAGS such as -g or --coverage
+ADDITIONAL_CFLAGS	=
+
+CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include -L.. -lmy \
+			$(ADDITIONAL_CFLAGS)
 
 all:	$(NAME)
 

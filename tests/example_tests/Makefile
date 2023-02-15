@@ -9,34 +9,25 @@
 #########################
 # Variables             #
 #########################
-TESTSRC	=	length_tests.c				\
-			precision_tests.c			\
-			prec_width_altform_combos.c	\
-			redirect_all_std.c			\
-			test_get_nbrsize.c			\
-			test_mega_put_nbr.c			\
-			test_mega_save_nbr.c		\
-			test_my_printf.c			\
-			test_other_my_printf.c		\
-			width_tests.c				\
-			return_value_tests.c
+TESTSRC	=	redirect_all_std.c		\
+			example_test.c
+
+TESTED_SRC	=	../../display_text.c
 
 
-LIBPATH		=	../../../lib
+MY_LIBS	=	my
 
-MY_LIBS	=	my_printf	\
-			newmy		\
-			my
+LIBPATH	=	../../lib/
 
 ## Just write 'NONE' if no libs are needed
 OTHER_LIBS	=	criterion
 
 
 
-INCLUDEPATH	=	../../../include
+INCLUDEPATH	=	../../include
 
 
-TEST_NAME	=	my_printf_test
+TEST_NAME	=	example_test
 
 ## Command-line argument
 ARG	=
@@ -71,7 +62,8 @@ all:	tests_run
 tests_run: $(TEST_NAME) run_test
 
 $(TEST_NAME):
-	gcc -o $(TEST_NAME) $(TESTSRC) $(CFLAGS) $(LDFLAGS)
+	@echo "gcc -o $(TEST_NAME) $(TESTSRC) $(TESTED_SRC) $(CFLAGS) $(LDFLAGS)"
+	@eval "gcc -o $(TEST_NAME) $(TESTSRC) $(TESTED_SRC) $(CFLAGS) $(LDFLAGS)"
 
 run_test:
 	./$(TEST_NAME)
@@ -79,4 +71,4 @@ run_test:
 tests_clean:
 	rm -f *gcno *gcda $(TEST_NAME)
 
-re:	clean all
+re:	tests_clean all

@@ -19,7 +19,8 @@
 # Variables             #
 #########################
 
-SRC	=	test.c
+SRC	=	example.c		\
+		display_text.c
 
 LIBPATH	=	./lib
 
@@ -39,6 +40,10 @@ BIN_NAME	=	test
 ## Command-line argument
 ARG	=
 
+## By default, there are no additional CFLAGS, this
+## variable is there to allow other Makefiles calling
+## this one to add CFLAGS such as -g or --coverage
+ADDITIONAL_CFLAGS	=
 
 #########################
 # Shortcuts             #
@@ -52,7 +57,7 @@ LIBNAMES	=	`echo "S$(MY_LIBS)E" | sed "s/ / lib/g" | sed "s/S/lib/g" | \
 LIBFLAGS	=	`echo " $(MY_LIBS) $(OTHER_LIBS)"	\
 					| sed "s/ NONE//" | sed "s/ /-l/" | sed "s/ / -l/g"`
 
-CFLAGS	=	-I$(INCLUDEPATH) -Wall -Wextra -Wshadow
+CFLAGS	=	-I$(INCLUDEPATH) -Wall -Wextra -Wshadow $(ADDITIONAL_CFLAGS)
 
 LDFLAGS	=	-L$(LIBPATH) $(LIBFLAGS)
 
@@ -105,8 +110,21 @@ main_re:	main_fclean $(BIN_NAME)
 
 
 
+## Tests rules
+tests_run:
+	make $(LIBNAMES) -C $(LIBPATH) ADDITIONAL_CFLAGS="--coverage"
+	make main_re ADDITIONAL_CFLAGS="--coverage"
+	make tests_run -C tests/
+
+tests_clean:	fclean
+	find -name "*.gcno" -delete -or -name "*.gcda" -delete
+	make tests_clean -C tests/
+
+
+
 ## Debug:
 debug_:
+	make -C $(LIBPATH) ADDITIONAL_CFLAGS="-g"
 	gcc $(SRC) $(CFLAGS) $(LDFLAGS) -g -o debug_$(BIN_NAME)
 
 debug_rm:

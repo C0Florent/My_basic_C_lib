@@ -20,7 +20,12 @@ SRC	=	alloc_matrix_t.c		\
 			comatrix.c				\
 			inverse.c
 
-CFLAGS	=	-I../../include -Wall -Wextra -Wshadow -Werror
+## By default, there are no additional CFLAGS, this
+## variable is there to allow other Makefiles calling
+## this one to add CFLAGS such as -g or --coverage
+ADDITIONAL_CFLAGS	=
+
+CFLAGS	=	-I../../include -Wall -Wextra -Wshadow -Werror $(ADDITIONAL_CFLAGS)
 
 OBJ	=	$(SRC:.c=.o)
 

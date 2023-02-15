@@ -8,6 +8,10 @@
 ARGS	=	$(MY_NAME) $(NEWMY_NAME) $(PRINTF_NAME) $(LIBSYS_NAME) \
 			$(MATRIX_NAME) $(GRAPHX_NAME) $(MATH_NAME) $(VECTOR_NAME)
 
+## By default, there are no additional CFLAGS, this
+## variable is there to allow other Makefiles calling
+## this one to add CFLAGS such as -g or --coverage
+ADDITIONAL_CFLAGS	=
 
 MY_DIR	=	my
 MY_NAME	=	libmy.a
@@ -39,28 +43,36 @@ all:	$(ARGS)
 
 
 $(MY_NAME):
-	make $(MY_NAME) -C $(MY_DIR)
+	make $(MY_NAME) -C $(MY_DIR) \
+		ADDITIONAL_CFLAGS="$(ADDITIONAL_CFLAGS)"
 
 $(NEWMY_NAME):
-	make $(NEWMY_NAME) -C $(NEWMY_DIR)
+	make $(NEWMY_NAME) -C $(NEWMY_DIR) \
+		ADDITIONAL_CFLAGS="$(ADDITIONAL_CFLAGS)"
 
 $(PRINTF_NAME):
-	make $(PRINTF_NAME) -C $(PRINTF_DIR)
+	make $(PRINTF_NAME) -C $(PRINTF_DIR) \
+		ADDITIONAL_CFLAGS="$(ADDITIONAL_CFLAGS)"
 
 $(LIBSYS_NAME):
-	make $(LIBSYS_NAME) -C $(LIBSYS_DIR)
+	make $(LIBSYS_NAME) -C $(LIBSYS_DIR) \
+		ADDITIONAL_CFLAGS="$(ADDITIONAL_CFLAGS)"
 
 $(MATRIX_NAME):
-	make $(MATRIX_NAME) -C $(MATRIX_DIR)
+	make $(MATRIX_NAME) -C $(MATRIX_DIR) \
+		ADDITIONAL_CFLAGS="$(ADDITIONAL_CFLAGS)"
 
 $(GRAPHX_NAME):
-	make $(GRAPHX_NAME) -C $(GRAPHX_DIR)
+	make $(GRAPHX_NAME) -C $(GRAPHX_DIR) \
+		ADDITIONAL_CFLAGS="$(ADDITIONAL_CFLAGS)"
 
 $(MATH_NAME):
-	make $(MATH_NAME) -C $(MATH_DIR)
+	make $(MATH_NAME) -C $(MATH_DIR) \
+		ADDITIONAL_CFLAGS="$(ADDITIONAL_CFLAGS)"
 
 $(VECTOR_NAME):
-	make $(VECTOR_NAME) -C $(VECTOR_DIR)
+	make $(VECTOR_NAME) -C $(VECTOR_DIR) \
+		ADDITIONAL_CFLAGS="$(ADDITIONAL_CFLAGS)"
 
 
 clean:

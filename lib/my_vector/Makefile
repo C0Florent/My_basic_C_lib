@@ -10,7 +10,12 @@ SRC	=	alloc_vector_t.c	\
 		free_vector_t.c		\
 		show_vector.c
 
-CFLAGS	=	-I../../include -Wall -Wextra -Wshadow -Werror
+## By default, there are no additional CFLAGS, this
+## variable is there to allow other Makefiles calling
+## this one to add CFLAGS such as -g or --coverage
+ADDITIONAL_CFLAGS	=
+
+CFLAGS	=	-I../../include -Wall -Wextra -Wshadow -Werror $(ADDITIONAL_CFLAGS)
 
 OBJ	=	$(SRC:.c=.o)
 
