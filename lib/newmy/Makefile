@@ -24,7 +24,8 @@ SRC	=	multi_free.c				\
 		mega_put_nbr.c				\
 		mega_save_nbr.c				\
 		linked_list/alloc_new_node.c\
-		linked_list/free_l_list_t.c
+		linked_list/free_l_list_t.c	\
+		my_getline.c 
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -119,7 +119,16 @@ int count_occurencies(char const *tested_str, char to_count);
 // Only copies the pointer, without any allocation
 imp_str_t *get_str_to_imp_str(char *str);
 
-
+// Reads one line of given in file descriptor `fd` and stores it
+// in `*lineptr`, reallocating it if need be, and accordingly setting
+// `*bufsiz_ptr` to match the size of allocated buffer
+//
+// Return code: number of bytes read (positive or zero)
+// Error codes (negative return codes):
+// -1:  a call to `read()` returned -1 at any point
+// -84: invalid arguments
+// -42: allocation error occurred during execution
+ssize_t my_fdgetline(char **lineptr, size_t *bufsiz_ptr, int fd);
 
 
 /* STRING ARRAY TOOLS */
