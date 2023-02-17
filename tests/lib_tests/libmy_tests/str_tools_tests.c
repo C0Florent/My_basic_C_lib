@@ -9,6 +9,7 @@
 #include <criterion/redirect.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 #include "include_test.h"
 #include "my.h"
 
@@ -211,4 +212,157 @@ Test(my_strcmp, s1_or_s2_null)
 {
     cr_assert(my_strcmp("foo", NULL) != 0);
     cr_assert(my_strcmp(NULL, "bar") != 0);
+}
+
+Test(my_strncmp, basic_success)
+{
+    cr_assert(my_strncmp("isson", "isson", 5) == 0);
+}
+
+Test(my_strncmp, shorter_n_success)
+{
+    cr_assert(my_strncmp("azer@@@", "azertyui", 4) == 0);
+}
+
+Test(my_strncmp, equal_strs_longer_n)
+{
+    cr_assert(my_strncmp("Lorem", "Lorem", 18) == 0);
+}
+
+Test(my_strncmp, basic_fail)
+{
+    cr_assert(my_strncmp("ABC", "DEF", 5) != 0);
+}
+
+Test(my_strncmp, same_start_n_longer)
+{
+    cr_assert(my_strncmp("hello everyone", "hello world", 7) != 0);
+}
+
+Test(my_strstr, find_stringQRS_in_the_alphabet)
+{
+    char needle[] = "QRS";
+    char haystack[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char *my_find = my_strstr(haystack, needle);
+    char *strs_find = strstr(haystack, needle);
+    cr_assert_str_eq(my_find, strs_find);
+}
+
+Test(my_strstr, find_the_haystack_in_the_needle)
+{
+    char needle[] = "QRS";
+    char haystack[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    cr_assert_null(strstr(needle, haystack));
+    cr_assert_null(my_strstr(needle, haystack));
+}
+
+Test(my_strstr, search_for_a_needle_when_theres_none)
+{
+    char needle[] = "A";
+    char haystack[] = "15623465451";
+    cr_assert_null(strstr(haystack, needle));
+    cr_assert_null(my_strstr(haystack, needle));
+}
+
+Test(my_strstr, hello)
+{
+    char needle[] = "lo";
+    char haystack[] = "hello";
+    cr_assert_str_eq(my_strstr(haystack, needle), "lo");
+    cr_assert_str_eq(my_strstr("hello", "he"), "hello");
+}
+
+Test(my_strdup, basic)
+{
+    char original[10] = {'a', 'b', 'c'};
+    char *dup = my_strdup(original);
+
+    cr_assert(strcmp(original, dup) == 0);
+    cr_assert_neq(original, dup);
+    free(dup);
+}
+
+Test(my_strdup, empty)
+{
+    char *one_byte = my_strdup("");
+
+    cr_assert_eq(*one_byte, '\0');
+    free(one_byte);
+}
+
+Test(my_str_isnum, basic_success)
+{
+    cr_assert(my_str_isnum("145246413998516"));
+}
+
+Test(my_str_isnum, basic_fail)
+{
+    cr_assert(!my_str_isnum("abfdsl"));
+    cr_assert(!my_str_isnum("/,+"));
+}
+
+Test(my_str_isnum, one_letter_in_the_middle)
+{
+    cr_assert(!my_str_isnum("145246413B98516"));
+}
+
+Test(my_str_isnum, edge_cases_fail)
+{
+    cr_assert(!my_str_isnum("@45246413998516"));
+    cr_assert(!my_str_isnum("45246413998516@"));
+}
+
+Test(my_str_isalpha, basic_success)
+{
+    cr_assert(my_str_isalpha("jgksdgjsdgj"));
+    cr_assert(my_str_isalpha("DFSJFKSJFKGFNDSJG"));
+    cr_assert(my_str_isalpha("jgkDSGHJfdshfjhfkDSFJSD"));
+}
+
+Test(my_str_isalpha, basic_fail)
+{
+    cr_assert(!my_str_isalpha("[564&'-|`{}"));
+    cr_assert(!my_str_isalpha("fdshfkjhsfk|fdsnfkls"));
+    cr_assert(!my_str_isalpha("14fdfq"));
+}
+
+Test(my_str_isalpha, empty)
+{
+    cr_assert(my_str_isalpha(""));
+}
+
+Test(my_str_islower, basic_success)
+{
+    cr_assert(my_str_islower("jgksdgjsdgj"));
+}
+
+Test(my_str_islower, fail_cases)
+{
+    cr_assert(!my_str_islower("123456"));
+    cr_assert(!my_str_islower("{[^#{[]}]}"));
+    cr_assert(!my_str_islower("fsffdsaasdq5fdsfsdf"));
+    cr_assert(!my_str_islower("fdsf#fdsfsf[s]ggjhkih"));
+    cr_assert(!my_str_islower("AAAAAAAA"));
+}
+
+Test(my_str_isupper, basic_success)
+{
+    cr_assert(my_str_isupper("FDHSJGNSKJLGLK"));
+}
+
+Test(my_str_isupper, fail_cases)
+{
+    cr_assert(!my_str_isupper("123456"));
+    cr_assert(!my_str_isupper("{[^#{[]}]}"));
+    cr_assert(!my_str_isupper("FDSJFDS5JKJFDIOSJF"));
+    cr_assert(!my_str_isupper("VDSVD#FDSFSF[FDNSFK]FD"));
+    cr_assert(!my_str_isupper("aaaaa"));
+}
+
+Test (my_str_isprintable, normal_test)
+{
+    cr_assert(my_str_isprintable("djfhdsk34~&)") == true);
+    cr_assert(my_str_isprintable("fŸ") == false);
+    cr_assert(my_str_isprintable("") == true);
+    cr_assert(my_str_isprintable("ŝf6") == false);
 }
