@@ -24,9 +24,7 @@ SRC	=	example.c		\
 
 LIBPATH	=	./lib
 
-MY_LIBS	=	my_printf	\
-			newmy		\
-			my
+MY_LIBS	=	my
 
 ## Just write 'NONE' as in the example below if the
 ## source files do not need any external libs
@@ -34,7 +32,7 @@ OTHER_LIBS	=	NONE
 
 INCLUDEPATH	=	./include
 
-BIN_NAME	=	test
+BIN_NAME	=	example
 
 
 ## Command-line argument
@@ -112,13 +110,16 @@ main_re:	main_fclean $(BIN_NAME)
 
 ## Tests rules
 tests_run:
-	make $(LIBNAMES) -C $(LIBPATH) ADDITIONAL_CFLAGS="--coverage"
+	@echo "make $(LIBNAMES) -C $(LIBPATH) ADDITIONAL_CFLAGS='--coverage'"
+	@eval "make $(LIBNAMES) -C $(LIBPATH) ADDITIONAL_CFLAGS='--coverage'"
 	make main_re ADDITIONAL_CFLAGS="--coverage"
 	make tests_run -C tests/
 
 tests_clean:	fclean
 	find -name "*.gcno" -delete -or -name "*.gcda" -delete
 	make tests_clean -C tests/
+
+tests_re: tests_clean tests_run
 
 
 

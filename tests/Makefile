@@ -11,6 +11,7 @@
 #########################
 
 TEST_DIRS	=	lib_tests/my_printf/	\
+				lib_tests/libmy_tests/	\
 				example_tests/
 
 
