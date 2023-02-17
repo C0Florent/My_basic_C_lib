@@ -6,6 +6,7 @@
 */
 
 #include "my.h"
+#include "my_macros.h"
 
 char *my_strcat(char *dest, char const *src)
 {
@@ -13,8 +14,9 @@ char *my_strcat(char *dest, char const *src)
     int lendest = my_strlen(dest);
     int i;
 
-    for (i = 0; i < lensrc; i++)
+    for (i = 0; i < lensrc; i++) {
         dest[lendest + i] = src[i];
-    dest[lendest + i] = '\0';
+    }
+    dest[MAX(lendest + i, 0)] = '\0';
     return (dest);
 }

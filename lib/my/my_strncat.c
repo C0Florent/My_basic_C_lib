@@ -6,14 +6,17 @@
 */
 
 #include "my.h"
+#include "my_macros.h"
 
 char *my_strncat(char *dest, char const *src, int nb)
 {
-    int len2 = my_strlen(dest);
+    int len_src = my_strlen(src);
+    int len_dest = my_strlen(dest);
     int i = 0;
 
-    for (i = 0; i < nb && src[i] != '\0'; i++)
-        dest[len2 + i] = src[i];
-    dest[len2 + i] = '\0';
+    for (i = 0; i < nb && i < len_src; i++) {
+        dest[len_dest + i] = src[i];
+    }
+    dest[MAX(len_dest + i, 0)] = '\0';
     return (dest);
 }
