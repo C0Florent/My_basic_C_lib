@@ -88,7 +88,7 @@ lib_fclean:
 	make fclean -C $(LIBPATH) ARGS="$(LIBNAMES)"
 
 lib_re:
-	make re -C $(LIBPATH)
+	make re -C $(LIBPATH) ARGS="$(LIBNAMES)"
 
 
 
@@ -125,7 +125,8 @@ tests_re: tests_clean tests_run
 
 ## Debug:
 debug_:
-	make -C $(LIBPATH) ADDITIONAL_CFLAGS="-g"
+	@echo "make $(LIBNAMES) -C $(LIBPATH) ADDITIONAL_CFLAGS='-g'"
+	@eval "make $(LIBNAMES) -C $(LIBPATH) ADDITIONAL_CFLAGS='-g'"
 	gcc $(SRC) $(CFLAGS) $(LDFLAGS) -g -o debug_$(BIN_NAME)
 
 debug_rm:
