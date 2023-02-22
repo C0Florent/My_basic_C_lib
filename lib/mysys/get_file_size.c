@@ -10,7 +10,11 @@
 long my_get_file_size(char const *filepath)
 {
     struct stat s;
+    int stat_ret;
 
-    stat(filepath, &s);
+    stat_ret = stat(filepath, &s);
+    if (stat_ret < 0) {
+        return (-84);
+    }
     return (s.st_size);
 }
