@@ -154,10 +154,10 @@ char **my_str_array_copy(char **src, char **dest);
 // Returns newly allocated str array on success, NULL otherwise
 char **my_str_array_dup(char **arr, unsigned int nb_rows);
 
-// Gets the src str into a single alloc'd char **
+// Separates replaces all delimitors of `src` with '\0'
 // Takes the chars from `list` as separators if `valid` is false,
 // or takes all characters except those listed in `list` if valid is true
-char **ult_str_to_str_array(char const *src, char const *list, bool valid);
+char **ult_str_to_str_array(char *src, char const *list, bool valid);
 
 
 

@@ -66,24 +66,23 @@ static void get_to_str_array(imp_str_t *imp_str, char const *list,
     array[j] = NULL;
 }
 
-char **ult_str_to_str_array(char const *src, char const *list, bool valid)
+char **ult_str_to_str_array(char *src, char const *list, bool valid)
 {
     char **ret_arr;
     int str_count = 0;
-    char *dup = my_strdup(src);
-    imp_str_t *impish_dup = get_str_to_imp_str(dup);
+    imp_str_t *impish_str = get_str_to_imp_str(src);
 
-    if (dup == NULL) {
+    if (src == NULL) {
         return (NULL);
     }
-    str_count = get_str_count(dup, list, valid);
+    str_count = get_str_count(src, list, valid);
     ret_arr = malloc(sizeof(char *) * (str_count + 1));
     if (ret_arr == NULL) {
-        free(dup);
+        free(impish_str);
         return (NULL);
     }
-    reset_invalid_chars(impish_dup, list, valid);
-    get_to_str_array(impish_dup, list, valid, ret_arr);
-    free(impish_dup);
+    reset_invalid_chars(impish_str, list, valid);
+    get_to_str_array(impish_str, list, valid, ret_arr);
+    free(impish_str);
     return (ret_arr);
 }
