@@ -23,7 +23,7 @@ All-purpose functions that I now cannot live without. They are in the spirit of 
 
 
 - my_printf:  
-Reproduction of the standard function printf, without buffer handling, and excluding %g and %a conversions. Also contains internal functions used to make my_printf() work  
+Reproduction of the standard function `printf`, without buffer handling, and excluding %g and %a conversions. Also contains internal functions used to make `my_printf()` work  
 -- Needs 'my' and 'newmy'
 
 
@@ -33,17 +33,17 @@ Actually only contains one function, to return the size of any given file using 
 
 - my_math:  
 A few functions and macros used for all math projects  
--- Uses standard printf() and variants
+-- Uses standard `printf()` and variants
 
 
 - my_vector:  
 Minimalist implementation of vectors, with only functions to allocate, free, and show coordinates of vectors.  
--- Uses standard printf()
+-- Uses standard `printf()`
 
 
 - my_matrix:  
 Proper implementation of matrices in C, with functions to allocate and free, show values with several display modes, set or reset values, and perform operations on matrices such as scalar, product and inverse.  
--- Almost without any standard C functions, and mostly compliant with Epitech's coding style (soon to come)
+-- Uses standard `printf()` and variants
 
 
 - my_graphics:  
@@ -63,5 +63,5 @@ As of now, there is no proper documentation, but for functions that require expl
 
 ## Testing ?
 
-For the most part, testing is something I have yet to do, but for now, the my_printf function is properly tested, and the libmy is tested 40% (in terms of line coverage)  
+For the most part, testing is something I have yet to do, but for now, the `my_printf` function is properly tested, and the libmy is tested 40% (in terms of line coverage)  
 Check the tests in the `tests` folder if you are curious
