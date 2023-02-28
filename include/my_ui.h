@@ -48,8 +48,10 @@ typedef struct {
 button_t *button_create(sfVector2f position, sfVector2f size);
 
 // Function to properly destroy (free) a button_t structure
-void button_destroy(button_t *button)
+void button_destroy(button_t *button);
 
+// Function to draw a button on the window's framebuffer
+void button_display(sfRenderWindow *wndw, button_t const *button);
 
 
 /////////////////////////////

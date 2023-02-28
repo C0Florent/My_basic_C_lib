@@ -27,7 +27,7 @@ static bool init_button(button_t *button, sfVector2f pos, sfVector2f size)
     sfRectangleShape_setSize(button->rect, size);
     sfRectangleShape_setFillColor(button->rect, sfWhite);
     sfRectangleShape_setOutlineColor(button->rect, sfBlack);
-    sfRectangleShape_setOutlineThickness(button->rect, 1.5);
+    sfRectangleShape_setOutlineThickness(button->rect, 2.2);
     return (EXIT_SUCCESS);
 }
 
@@ -40,8 +40,9 @@ button_t *button_create(sfVector2f position, sfVector2f size)
         write(2, "create_button: malloc error\n", 27);
         return (NULL);
     }
-    init_ret = init_button(button_create, position, size);
+    init_ret = init_button(ret, position, size);
     if (init_ret == EXIT_FAILURE) {
         return (NULL);
     }
+    return (ret);
 }
