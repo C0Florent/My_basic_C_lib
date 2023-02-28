@@ -20,6 +20,42 @@
     #endif /* ABS */
 
 
+// Defines three states for clickable UI elements:
+// Hovered, Pressed, Released
+enum clickable_ui_elem_state {
+    NONE = 0,
+    HOVER,
+    PRESSED,
+    RELEASED
+};
+
+
+
+///////////////////////////
+//        BUTTONS        //
+///////////////////////////
+
+typedef struct {
+    enum clickable_ui_elem_state state;
+
+    sfRectangleShape *rect;
+    sfVector2f pos; //(Center point)
+    sfVector2f size;
+} button_t;
+
+
+// Function to properly initialise a button_t structure
+button_t *button_create(sfVector2f position, sfVector2f size);
+
+// Function to properly destroy (free) a button_t structure
+void button_destroy(button_t *button)
+
+
+
+/////////////////////////////
+//        SLIDEBARS        //
+/////////////////////////////
+
 typedef struct {
     bool is_grabbed;
     float cursor_pos;
@@ -31,7 +67,6 @@ typedef struct {
     sfRectangleShape *bar;
     sfRectangleShape *cursor;
 } slidebar_t;
-
 
 
 
