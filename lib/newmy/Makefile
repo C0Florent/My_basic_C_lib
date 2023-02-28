@@ -16,6 +16,7 @@ SRC	=	multi_free.c				\
 		my_str_is_made_of.c			\
 		my_get_nbrsize.c			\
 		show_dump.c					\
+		my_eq.c						\
 		count_char_occurencies.c	\
 		get_str_to_imp_str.c		\
 		ult_str_to_str_array.c		\

@@ -77,6 +77,10 @@ int my_get_nbrsize(unsigned long long nb, int base);
 // Usage example: `show_dump(&my_var, sizeof(my_var));`
 void show_dump(void *var_ptr, size_t var_size);
 
+// Function to check if 2 variables of any type are equal, byte by byte
+// Example usage: my_eq(&my_var1, &my_var2, sizeof(my_var1))
+bool my_eq(void *var1, void *var2, size_t var_size);
+
 
 
 /* NUMBER TOOLS */
