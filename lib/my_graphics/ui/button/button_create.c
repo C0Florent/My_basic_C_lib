@@ -23,6 +23,8 @@ static bool init_button(button_t *button, sfVector2f pos, sfVector2f size)
     button->state = NONE;
     button->size = size;
     button->pos = pos;
+    sfRectangleShape_setPosition(button->rect, pos);
+    sfRectangleShape_setSize(button->rect, size);
     sfRectangleShape_setFillColor(button->rect, sfWhite);
     sfRectangleShape_setOutlineColor(button->rect, sfBlack);
     sfRectangleShape_setOutlineThickness(button->rect, 1.5);
