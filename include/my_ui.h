@@ -113,9 +113,17 @@ typedef enum {
 void slidebar_set_bound_values(slidebar_t *sb, float min,
 float max, set_bound_val_mode_t set_mode);
 
+// Sets the slidebar's cursor position to given pos, which is, in pixels,
+// the relative distance of the cursor's center and the slidebar's center
 void slidebar_cursor_set_pos(slidebar_t *sb, float pos);
+
+// Sets the slidebar's cursor position to the
+// mouse position which is given as parameter
 void slidebar_cursor_set_pos_from_mouse_pos(slidebar_t * sb,
 sfMouseButtonEvent const *click_pos);
+
+// Sets the slidebar's value to given value, and
+// updating its graphical position accordingly
 void slidebar_cursor_set_value(slidebar_t *sb, float value);
 
 #endif /* !MY_SLIDEBAR_H_ */
