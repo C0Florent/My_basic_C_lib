@@ -14,7 +14,10 @@ SRC	=	vctr.c								\
 		ui/slidebar/move_cursor.c			\
 		ui/slidebar/set_min_max.c			\
 		ui/slidebar/set_cursor_pos_val.c	\
-		ui/slidebar/destroy_slidebar.c
+		ui/slidebar/destroy_slidebar.c		\
+		ui/button/button_create.c			\
+		ui/button/button_destroy.c			\
+		ui/button/button_display.c
 
 OBJ	=	$(SRC:.c=.o)
 
