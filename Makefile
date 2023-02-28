@@ -19,16 +19,16 @@
 # Variables             #
 #########################
 
-SRC	=	example.c		\
-		display_text.c
+SRC	=	test.c
 
 LIBPATH	=	./lib
 
-MY_LIBS	=	my
+MY_LIBS	=	my			\
+			my_graphics
 
-## Just write 'NONE' as in the example below if the
+## Just write 'OTHER_LIBS	=	NONE' if the
 ## source files do not need any external libs
-OTHER_LIBS	=	NONE
+OTHER_LIBS	=	csfml-graphics
 
 INCLUDEPATH	=	./include
 
