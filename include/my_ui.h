@@ -20,6 +20,12 @@
     #endif /* ABS */
 
 
+
+
+//////////////////////////////
+//      ALL-PURPOSE UI      //
+//////////////////////////////
+
 // Defines three states for clickable UI elements:
 // Hovered, Pressed, Released
 enum clickable_ui_elem_state {
@@ -28,6 +34,12 @@ enum clickable_ui_elem_state {
     PRESSED,
     RELEASED
 };
+
+
+// Function to check if a sfEvent refers to a mouse event
+// (and even of a specific mouse button for press/release events)
+bool is_mouse_event(sfEvent const *event, sfMouseButton accepted_click);
+
 
 
 

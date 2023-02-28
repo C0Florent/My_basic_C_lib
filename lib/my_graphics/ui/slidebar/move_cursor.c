@@ -41,29 +41,11 @@ static bool is_able_to_move_cursor(slidebar_t *sb, sfEvent const *event)
     return (false);
 }
 
-static bool is_mouse_event(sfEvent const *event)
-{
-    switch (event->type) {
-    case sfEvtMouseButtonPressed:
-    case sfEvtMouseButtonReleased:
-        if (event->mouseButton.button == sfMouseLeft) {
-            return (true);
-        } else {
-            return (false);
-        }
-        break;
-    case sfEvtMouseMoved:
-        return (true);
-    default:
-        return (false);
-    }
-}
-
 // This function needs to be called for each frame of rendered image,
 // in order to properly update the sb's cursor position
 void move_cursor(slidebar_t *sb, sfEvent const *event)
 {
-    if (is_mouse_event(event) == false) {
+    if (is_mouse_event(event, sfMouseLeft) == false) {
         return;
     }
     if (is_able_to_move_cursor(sb, event) == false) {
