@@ -93,6 +93,9 @@ void display_slidebar(sfRenderWindow *window, slidebar_t const *slidebar);
 // Destroy (free) a slidebar
 void destroy_slidebar(slidebar_t *sb);
 
+// This function needs to be called for each frame of rendered image,
+// in order to properly update the sb's cursor position
+void move_cursor(slidebar_t *sb, sfEvent const *event);
 
 typedef enum {
     KEEP_POS,
