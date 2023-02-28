@@ -5,16 +5,16 @@
 ## Compiles the my_graphics library
 ##
 
-SRC	=	vctr.c							\
-		my_create_window.c				\
-		my_create_sprite_from_file.c	\
-		destroy_disp_sprt.c				\
-		slidebar/create_slidebar.c		\
-		slidebar/display_slidebar.c		\
-		slidebar/move_cursor.c			\
-		slidebar/set_min_max.c			\
-		slidebar/set_cursor_pos_val.c	\
-		slidebar/destroy_slidebar.c
+SRC	=	vctr.c								\
+		my_create_window.c					\
+		my_create_sprite_from_file.c		\
+		destroy_disp_sprt.c					\
+		ui/slidebar/create_slidebar.c		\
+		ui/slidebar/display_slidebar.c		\
+		ui/slidebar/move_cursor.c			\
+		ui/slidebar/set_min_max.c			\
+		ui/slidebar/set_cursor_pos_val.c	\
+		ui/slidebar/destroy_slidebar.c
 
 OBJ	=	$(SRC:.c=.o)
 

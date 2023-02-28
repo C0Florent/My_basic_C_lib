@@ -8,7 +8,7 @@
 #include <criterion/criterion.h>
 #include "newmy.h"
 
-#include "my_slidebar.h"
+#include "my_ui.h"
 #include "my_graphics.h"
 
 Test(my_eq, basic_success)

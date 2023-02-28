@@ -6,7 +6,7 @@
 */
 
 #include "my_graphics.h"
-#include "my_slidebar.h"
+#include "my_ui.h"
 #include <stdio.h>
 
 static void analyse_events(sfRenderWindow *wndw, slidebar_t *sb)
