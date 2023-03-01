@@ -65,6 +65,10 @@ void button_destroy(button_t *button);
 // Function to draw a button on the window's framebuffer
 void button_display(sfRenderWindow *wndw, button_t const *button);
 
+// Function to be called during the sfRenderWindow_pollEvent loop,
+// to update the button's internal state depending on mouse actions
+void update_button_state(button_t *button, sfEvent const *event);
+
 
 /////////////////////////////
 //        SLIDEBARS        //
@@ -81,7 +85,6 @@ typedef struct {
     sfRectangleShape *bar;
     sfRectangleShape *cursor;
 } slidebar_t;
-
 
 
 // Create a slidebar, which will be centered at `pos`, and of size `bar_size`

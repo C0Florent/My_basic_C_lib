@@ -18,7 +18,8 @@ SRC	=	vctr.c								\
 		ui/slidebar/destroy_slidebar.c		\
 		ui/button/button_create.c			\
 		ui/button/button_destroy.c			\
-		ui/button/button_display.c
+		ui/button/button_display.c			\
+		ui/button/update_button_state.c
 
 OBJ	=	$(SRC:.c=.o)
 

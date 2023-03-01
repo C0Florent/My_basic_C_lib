@@ -9,7 +9,7 @@
 #include "my_ui.h"
 #include <stdio.h>
 
-static void analyse_events(sfRenderWindow *wndw, slidebar_t *sb)
+static void analyse_events(sfRenderWindow *wndw, slidebar_t *sb, button_t *btn)
 {
     sfEvent event;
 
@@ -18,6 +18,7 @@ static void analyse_events(sfRenderWindow *wndw, slidebar_t *sb)
             sfRenderWindow_close(wndw);
         }
         move_cursor(sb, &event);
+        update_button_state(btn, &event);
     }
 }
 
@@ -35,7 +36,7 @@ int main(void)
         fflush(stdout);
         sfRenderWindow_display(wndw);
         sfRenderWindow_clear(wndw, sfColor_fromInteger(0x23272A00));
-        analyse_events(wndw, sb);
+        analyse_events(wndw, sb, button);
     }
     destroy_slidebar(sb);
     button_destroy(button);
