@@ -50,7 +50,7 @@ static void read_mouse_event(button_t *button, sfEvent const *event,
     if (event->type == sfEvtMouseButtonReleased) {
         click_on = false;
     }
-    if (event->type == sfEvtMouseButtonPressed) {
+    if (event->type == sfEvtMouseButtonPressed && is_mouse_in) {
         click_on = true;
     }
     switch (is_mouse_in) {

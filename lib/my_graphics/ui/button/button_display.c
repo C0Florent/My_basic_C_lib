@@ -13,7 +13,7 @@ static void update_button_colour(button_t const *button)
 {
     switch (button->state) {
     case NONE:
-        sfRectangleShape_setFillColor(button->rect, sfRed);
+        sfRectangleShape_setFillColor(button->rect, sfBlue);
         break;
     case RELEASED:
         sfRectangleShape_setFillColor(button->rect, sfWhite);
@@ -22,7 +22,7 @@ static void update_button_colour(button_t const *button)
         sfRectangleShape_setFillColor(button->rect, sfGreen);
         break;
     case PRESSED:
-        sfRectangleShape_setFillColor(button->rect, sfYellow);
+        sfRectangleShape_setFillColor(button->rect, sfRed);
         break;
     }
 }
