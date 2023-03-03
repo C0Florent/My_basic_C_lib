@@ -156,7 +156,7 @@ char **my_str_array_copy(char **src, char **dest);
 
 // Name is as explicit as could be.
 // Returns newly allocated str array on success, NULL otherwise
-char **my_str_array_dup(char **arr, unsigned int nb_rows);
+char **my_str_array_dup(char * const *arr);
 
 // Separates replaces all delimitors of `src` with '\0'
 // Takes the chars from `list` as separators if `valid` is false,
