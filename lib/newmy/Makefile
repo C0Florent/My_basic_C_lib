@@ -12,6 +12,7 @@ SRC	=	multi_free.c				\
 		my_str_array_copy.c			\
 		my_str_array_dup.c			\
 		my_putsterr.c				\
+		my_fdputs.c					\
 		my_strndup.c				\
 		my_str_is_made_of.c			\
 		my_get_nbrsize.c			\
