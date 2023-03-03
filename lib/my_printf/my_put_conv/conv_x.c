@@ -29,7 +29,7 @@ int my_put_conv_x(conv_det_t *details, va_list *arguments, int fd)
 
     if (final_str == NULL)
         return (-84);
-    my_str_initialise(final_str, final_conv_size);
+    my_str_initialise(final_str, final_conv_size + 1);
     mega_save_nbr(final_str, nb_to_put, 16);
     add_precision(final_str, details->precision);
     add_hex_altform(final_str, details);

@@ -103,6 +103,27 @@ Test(my_printf, flag_b, .init = redirect_all_std) {
 
     cr_assert_stdout_eq_str("1010001101");
 }
+
+Test(my_printf, print_number_0__conv_i, .init = redirect_all_std)
+{
+    my_printf("%i", 0);
+
+    cr_assert_stdout_eq_str("0");
+}
+
+Test(my_printf, print_number_0__conv_u, .init = redirect_all_std)
+{
+    my_printf("%u", 0);
+
+    cr_assert_stdout_eq_str("0");
+}
+
+Test(my_printf, print_number_0__conv_x, .init = redirect_all_std)
+{
+    my_printf("%x", 0);
+
+    cr_assert_stdout_eq_str("0");
+}
 /*
 Test(my_printf, flag_n_alone, .init = redirect_all_std) {
     int len_so_far;
