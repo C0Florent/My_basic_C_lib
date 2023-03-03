@@ -32,7 +32,7 @@ int my_put_conv_o(conv_det_t *details, va_list *arguments)
     mega_save_nbr(final_str, nb_to_put, 8);
     add_precision(final_str, details->precision);
     add_octal_altform(final_str, details->is_alt_form);
-    fill_width_u(final_str, details);
+    fill_width_uo(final_str, details);
     my_putstr(final_str);
     free(final_str);
     return (final_conv_size);

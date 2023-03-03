@@ -10,7 +10,7 @@
 #include "my_printf_internal.h"
 #include "my.h"
 
-int fill_width_u(char *final_str, conv_det_t *det)
+int fill_width_uo(char *final_str, conv_det_t *det)
 {
     int len = my_strlen(final_str);
     int chars_to_add = det->width - len;

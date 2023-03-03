@@ -14,5 +14,9 @@ int my_printf(char *format, ...);
 
 int my_vprintf(char *format, va_list *args);
 
+int my_dprintf(int fd, char *format, ...);
+
+int my_vdprintf(int fd, char *format, va_list *args);
+
 
 #endif /*MY_PRINTF_H*/

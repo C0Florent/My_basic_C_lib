@@ -32,7 +32,7 @@ void browse_conv(char *conv, conv_det_t *details, va_list *args)
     }
 }
 
-int read_conv(char *conv, conv_det_t *conv_details, va_list *args)
+int read_conv(char const *conv, conv_det_t *conv_details, va_list *args)
 {
     unsigned int len = 1;
     char *convert;

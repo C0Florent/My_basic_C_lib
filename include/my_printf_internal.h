@@ -20,7 +20,7 @@ int my_save_float_digits(double nb, int precision, char *buf);
 typedef struct conversion_details {
     char conversion;
     int precision;
-    bool is_alt_form;        /*either 0 or 1*/
+    bool is_alt_form;
     char len_modifier[2];
     int width;
     bool dash_flag;
@@ -77,8 +77,7 @@ int my_get_nbrsize(unsigned long long nb, int base);
 int my_float_int_part_size(double nb, int base);
 int add_precision(char *nbr, int precision);
 int fill_width_i(char *final_str, conv_det_t *details);
-int fill_width_u(char *final_str, conv_det_t *details);
-int fill_width_o(char *final_str, conv_det_t *details);
+int fill_width_uo(char *final_str, conv_det_t *details);
 int fill_width_x(char *final_str, conv_det_t *details);
 int my_get_di_core_size(long long nb, conv_det_t *details);
 int my_get_di_total_size(long long nb, conv_det_t *details);
@@ -87,9 +86,8 @@ int my_get_o_total_size(unsigned long long nb, conv_det_t *details);
 int my_get_x_total_size(unsigned long long nb, conv_det_t *details);
 int my_get_f_total_size(double, conv_det_t *details);
 int my_get_e_total_size(double, conv_det_t *details);
-int read_conv(char *conv, conv_det_t *conv_details, va_list *args);
+int read_conv(char const *conv, conv_det_t *conv_details, va_list *args);
 int show_details(conv_det_t *d);
-int put_char_space (int nb);
 
 long long redirect_signed(conv_det_t *details, va_list *list);
 unsigned long long redirect_unsigned(conv_det_t *details, va_list *list);
