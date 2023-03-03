@@ -31,7 +31,7 @@ typedef struct conversion_details {
 
 
 typedef struct put_conv_ptr {
-    int (*fptr)(conv_det_t *details, va_list *arguments);
+    int (*fptr)(conv_det_t *details, va_list *arguments, int fd);
     char conversion;
 } put_conv_ptr_t;
 
@@ -57,21 +57,22 @@ void read_len_modifier(char *len_modifier, char const *conv);
 void clean_struct(conv_det_t *structure);
 
 
-int my_put_conv_i(conv_det_t *details, va_list *arguments);
-int my_put_conv_u(conv_det_t *details, va_list *arguments);
-int my_put_conv_b(conv_det_t *details, va_list *arguments);
-int my_put_conv_o(conv_det_t *details, va_list *arguments);
-int my_put_conv_x(conv_det_t *details, va_list *arguments);
-int my_put_conv_p(conv_det_t *details, va_list *arguments);
-int my_put_conv_f(conv_det_t *details, va_list *arguments);
-int my_put_conv_e(conv_det_t *details, va_list *arguments);
-int my_put_conv_g(conv_det_t *details, va_list *arguments);
+int my_put_conv_i(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_u(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_b(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_o(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_x(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_p(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_f(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_e(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_g(conv_det_t *details, va_list *arguments, int fd);
 
-int my_put_conv_c(conv_det_t *details, va_list *arguments);
-int my_put_conv_s(conv_det_t *details, va_list *arguments);
-int my_put_conv_percent(conv_det_t *details, va_list *arguments);
+int my_put_conv_c(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_s(conv_det_t *details, va_list *arguments, int fd);
+int my_put_conv_percent(conv_det_t *details, va_list *arguments, int fd);
 
-int redirect_to_right_conv(conv_det_t *details, va_list *arguments, int *count);
+int redirect_to_right_conv(conv_det_t *details, va_list *arguments,
+    int *count, int fd);
 
 int my_get_nbrsize(unsigned long long nb, int base);
 int my_float_int_part_size(double nb, int base);

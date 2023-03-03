@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "my.h"
 #include "my_printf_internal.h"
+#include "newmy.h"
 
 static int add_decimal_dot(char *final_str, conv_det_t *details)
 {
@@ -38,7 +39,7 @@ static int add_sign_or_blank(char *final_str, double nb, conv_det_t *details)
     return (0);
 }
 
-int my_put_conv_f(conv_det_t *details, va_list *arguments)
+int my_put_conv_f(conv_det_t *details, va_list *arguments, int fd)
 {
     double nb = va_arg(*arguments, double);
     int total_size = my_get_f_total_size(nb, details);
@@ -50,7 +51,7 @@ int my_put_conv_f(conv_det_t *details, va_list *arguments)
     add_decimal_dot(final_str, details);
     add_sign_or_blank(final_str, nb, details);
     fill_width_i(final_str, details);
-    my_putstr(final_str);
+    my_fdputs(final_str, fd);
     len = my_strlen(final_str);
     free(final_str);
     return (len);

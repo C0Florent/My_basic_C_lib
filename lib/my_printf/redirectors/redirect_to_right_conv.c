@@ -27,11 +27,12 @@ static const put_conv_ptr_t conv_funcs[] = {
     {&my_put_conv_percent, '%'},
     {NULL, '\0'}};
 
-int redirect_to_right_conv(conv_det_t *details, va_list *arguments, int *count)
+int redirect_to_right_conv(conv_det_t *details, va_list *arguments,
+    int *count, int fd)
 {
     for (size_t i = 0; conv_funcs[i].fptr != NULL; i++) {
         if (conv_funcs[i].conversion == details->conversion) {
-            (*count) += conv_funcs[i].fptr(details, arguments);
+            (*count) += conv_funcs[i].fptr(details, arguments, fd);
             return (0);
         }
     }

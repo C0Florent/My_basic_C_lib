@@ -11,7 +11,7 @@
 #include "newmy.h"
 
 int my_put_conv_b(__attribute__((unused)) conv_det_t *details,
-    va_list *arguments)
+    va_list *arguments, __attribute__((unused))int fd)
 {
     unsigned long long nb_to_put = va_arg(*arguments, int);
     int size = my_get_nbrsize(nb_to_put, 2);

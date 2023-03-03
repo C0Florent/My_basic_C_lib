@@ -61,11 +61,10 @@ static int finish_conv_e(char *final_str, double nb, conv_det_t *details,
     fill_width_i(final_str, details);
     if (details->conversion == 'E')
         my_strupcase(final_str);
-    my_putstr(final_str);
-    return (0);
+    return (my_strlen(final_str));
 }
 
-int my_put_conv_e(conv_det_t *details, va_list *arguments)
+int my_put_conv_e(conv_det_t *details, va_list *arguments, int fd)
 {
     double nb = va_arg(*arguments, double);
     int size = my_get_e_total_size(nb, details);
@@ -83,8 +82,8 @@ int my_put_conv_e(conv_det_t *details, va_list *arguments)
         exponent++;
         final_str[details->precision + 1] = '\0';
     }
-    finish_conv_e(final_str, nb, details, exponent);
-    size = my_strlen(final_str);
+    size = finish_conv_e(final_str, nb, details, exponent);
+    my_fdputs(final_str, fd);
     free(final_str);
     return (size);
 }

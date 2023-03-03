@@ -23,7 +23,9 @@ SRC	=	test.c
 
 LIBPATH	=	./lib
 
-MY_LIBS	=	my			\
+MY_LIBS	=	my_printf	\
+			newmy		\
+			my			\
 			my_graphics
 
 ## Just write 'OTHER_LIBS	=	NONE' if the

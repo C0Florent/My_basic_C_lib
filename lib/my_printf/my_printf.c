@@ -9,7 +9,7 @@
 #include "my.h"
 #include "my_printf_internal.h"
 
-int my_vprintf(char *format, va_list *arg)
+int my_vdprintf(int fd, char const *format, va_list *arg)
 {
     conv_det_t conv_details;
     int charcount = 0;
@@ -21,13 +21,32 @@ int my_vprintf(char *format, va_list *arg)
         } else {
             i += read_conv(&format[i], &conv_details, arg);
             clean_struct(&conv_details);
-            redirect_to_right_conv(&conv_details, arg, &charcount);
+            redirect_to_right_conv(&conv_details, arg, &charcount, fd);
         }
     }
     return (charcount);
 }
 
-int my_printf(char *format, ...)
+int my_dprintf(int fd, char const *format, ...)
+{
+    va_list arg;
+    int charcount;
+
+    va_start(arg, *format);
+    charcount = my_vdprintf(fd, format, &arg);
+    va_end(arg);
+    return (charcount);
+}
+
+int my_vprintf(char const *format, va_list *arg)
+{   
+    int charcount;
+
+    charcount = my_vdprintf(1, format, arg);
+    return (charcount);
+}
+
+int my_printf(char const *format, ...)
 {
     va_list arg;
     int charcount;

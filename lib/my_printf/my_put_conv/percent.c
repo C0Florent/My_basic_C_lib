@@ -6,12 +6,12 @@
 */
 
 #include <stdarg.h>
-#include "my.h"
+#include <unistd.h>
 #include "my_printf_internal.h"
 
 int my_put_conv_percent(__attribute__((unused)) conv_det_t *details,
-    __attribute__((unused)) va_list *arguments)
+    __attribute__((unused)) va_list *arguments, int fd)
 {
-    my_putchar('%');
+    write(fd, "%", 1);
     return (1);
 }

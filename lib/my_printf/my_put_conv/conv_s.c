@@ -22,20 +22,20 @@ static int get_truncated_str_len(char *str, int precision)
     }
 }
 
-int my_put_conv_s(conv_det_t *details, va_list *arguments)
+int my_put_conv_s(conv_det_t *details, va_list *arguments, int fd)
 {
     char *str = (va_arg(*arguments, char *));
     int len = get_truncated_str_len(str, details->precision);
     int spaces_to_print = MAX(details->width - len, 0);
 
     if (details->dash_flag) {
-        write(1, str, len);
+        write(fd, str, len);
     }
     for (int i = 0; i < spaces_to_print; i++) {
-        my_putchar(' ');
+        write(fd, " ", 1);
     }
     if (!details->dash_flag) {
-        write(1, str, len);
+        write(fd, str, len);
     }
     return (spaces_to_print + len);
 }
