@@ -104,7 +104,7 @@ bool eq_2d_coords(_2d_coords_t const *c1, _2d_coords_t const *c2);
 void my_putsterr(char const *str);
 
 // Writes a string to any fd
-int my_fdputs(char const *str, int fd)
+int my_fdputs(char const *str, int fd);
 
 // Dupes the (at most) n first bytes of src and returns it
 //
