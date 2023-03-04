@@ -6,6 +6,7 @@
 */
 
 #include <stdarg.h>
+#include <unistd.h>
 #include "my.h"
 #include "my_printf_internal.h"
 
@@ -16,7 +17,7 @@ int my_vdprintf(int fd, char const *format, va_list *arg)
 
     for (int i = 0; i < my_strlen(format); i++) {
         if (format[i] != '%') {
-            my_putchar(format[i]);
+            write(fd, format[i], 1);
             charcount++;
         } else {
             i += read_conv(&format[i], &conv_details, arg);
