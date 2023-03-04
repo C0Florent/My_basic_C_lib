@@ -17,7 +17,7 @@ int my_vdprintf(int fd, char const *format, va_list *arg)
 
     for (int i = 0; i < my_strlen(format); i++) {
         if (format[i] != '%') {
-            write(fd, format[i], 1);
+            write(fd, &format[i], 1);
             charcount++;
         } else {
             i += read_conv(&format[i], &conv_details, arg);
