@@ -40,7 +40,7 @@ int my_dprintf(int fd, char const *format, ...)
 }
 
 int my_vprintf(char const *format, va_list *arg)
-{   
+{
     int charcount;
 
     charcount = my_vdprintf(1, format, arg);
