@@ -35,7 +35,9 @@ void put_float_right(double nb, int precision);
 
 /* COMPUTATION */
 
-// Evaluates the sum{i = 0 -> coef_count}(coefs[i] * x^i)
+
+// Evaluates the polynomial whose coefficients are
+// given in coefs, in ascending power order
 double poly(vector_t *coefs, double x);
 
 

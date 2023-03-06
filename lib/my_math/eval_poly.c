@@ -12,17 +12,20 @@
 #include "newmy.h"
 #include "my.h"
 
-// Evaluates the sum{i = 0 -> coef_count}(coefs[i] * x^i)
+// Evaluates the polynomial whose coefficients are
+// given in coefs, in ascending power order
 double poly(vector_t *coefs, double x)
 {
-    double result = 0;
+    double result;
 
-    if (coefs == NULL) {
-        my_putsterr("in: poly(): vector_t *coefs is NULL");
+    if (coefs == NULL || coefs->coords == NULL || coefs->size == 0) {
+        my_putsterr("in: poly(): cannot compute because of input vector\n");
         return (NAN);
     }
-    for (unsigned int i = 0; i < coefs->size; i++) {
-        result += coefs->coords[i] * my_compute_float_power(x, i);
+    result = coefs->coords[coefs->size - 1];
+    for (unsigned int i = coefs->size - 2; i >= 0; i++) {
+        result *= x;
+        result += coefs->coords[i];
     }
     return (result);
 }
