@@ -7,7 +7,8 @@
 
 SRC	=	put_float_right.c	\
 		my_str_is_float.c	\
-		approx_eq.c
+		approx_eq.c			\
+		eval_poly.c
 
 OBJ	=	$(SRC:.c=.o)
 

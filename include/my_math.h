@@ -13,6 +13,15 @@
     #define MY_PI   3.14159265358979323846
     #define DELTA(a, b, c)  SQ(b) - 4 * (a) * (c)
 
+
+    #ifndef VECTOR_T
+        #define VECTOR_T
+typedef struct {
+    double *coords;
+    unsigned int size;
+} vector_t;
+    #endif /* VECTOR_T */
+
 /* DISPLAY */
 
 // Displays a float in the most sensible way: going up to 'precision'
@@ -24,6 +33,13 @@ void put_float_right(double nb, int precision);
 
 //////////////////////////////////////
 
+/* COMPUTATION */
+
+// Evaluates the sum{i = 0 -> coef_count}(coefs[i] * x^i)
+double poly(vector_t *coefs, double x);
+
+
+//////////////////////////////////////
 
 /* TESTS */
 

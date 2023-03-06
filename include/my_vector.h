@@ -8,10 +8,14 @@
 #ifndef MY_VECTOR_H_
     #define MY_VECTOR_H_
 
+
+    #ifndef VECTOR_T
+        #define VECTOR_T
 typedef struct {
     double *coords;
     unsigned int size;
 } vector_t;
+    #endif /* VECTOR_T */
 
 vector_t *alloc_vector_t(unsigned int size);
 
