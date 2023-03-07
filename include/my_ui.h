@@ -49,6 +49,8 @@ bool is_mouse_event(sfEvent const *event, sfMouseButton accepted_click);
 
 typedef struct {
     enum clickable_ui_elem_state state;
+    bool clicked;   //Remains true as long as a mouse click
+                    //started in the button area is not released
 
     sfRectangleShape *rect;
     sfVector2f pos; //(Center point)

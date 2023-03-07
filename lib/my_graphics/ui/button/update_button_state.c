@@ -44,18 +44,17 @@ static void get_mouse_pos(float *x, float *y, sfEvent const *event)
 static void read_mouse_event(button_t *button, sfEvent const *event,
     float mouse_x, float mouse_y)
 {
-    static bool click_on = false;
     bool is_mouse_in = is_mouse_on_button(mouse_x, mouse_y, button);
 
     if (event->type == sfEvtMouseButtonReleased) {
-        click_on = false;
+        button->clicked = false;
     }
     if (event->type == sfEvtMouseButtonPressed && is_mouse_in) {
-        click_on = true;
+        button->clicked = true;
     }
     switch (is_mouse_in) {
     case true:
-        button->state = (click_on ? PRESSED : HOVER);
+        button->state = (button->clicked ? PRESSED : HOVER);
         break;
     case false:
         button->state = RELEASED;
