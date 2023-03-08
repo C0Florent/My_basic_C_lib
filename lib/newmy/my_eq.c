@@ -11,7 +11,7 @@
 
 // Function to check if 2 variables of any type are equal, byte by byte
 // Example usage: my_eq(&my_var1, &my_var2, sizeof(my_var1))
-bool my_eq(void *var1, void *var2, size_t var_size)
+bool my_eq(void const *var1, void const *var2, size_t var_size)
 {
     uint8_t *var1_ptr = (uint8_t *)var1;
     uint8_t *var2_ptr = (uint8_t *)var2;
