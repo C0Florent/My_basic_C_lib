@@ -54,7 +54,7 @@ enum button_type {
             //  to another boolean to update it dynamically
 };
 
-typedef struct {
+typedef struct button {
     enum clickable_ui_elem_state state;
     bool clicked;       // Remains true as long as a mouse click
                         //  started in the button area is not released
@@ -73,6 +73,10 @@ typedef struct {
     sfRectangleShape *rect;
     sfVector2f pos;     // Center point
     sfVector2f size;
+
+    // Specify here the function which should be used to display the button
+    // This function will be called, when calling `button_display()`
+    void (*display_function)(sfRenderWindow *wndw, struct button const *button);
 } button_t;
 
 
@@ -83,8 +87,13 @@ button_t *button_create(sfVector2f position, sfVector2f size,
 // Function to properly destroy (free) a button_t structure
 void button_destroy(button_t *button);
 
-// Function to draw a button on the window's framebuffer
+// Function to draw a button on the window's framebuffer,
+// which will the button's display function specified in its structure
 void button_display(sfRenderWindow *wndw, button_t const *button);
+
+// Proof of concept display function, which shows the possibilities of the
+// button structure, without much concern for aesthetic
+void poc_button_display(sfRenderWindow *wndw, button_t const *button);
 
 // Function to be called once per frame,
 // to reset the button's falling edge and rising edge booleans

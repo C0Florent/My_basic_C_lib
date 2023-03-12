@@ -41,6 +41,7 @@ static bool init_button(button_t *button, sfVector2f pos,
     init_sfrect_shape(button->rect, size, pos);
     button->size = size;
     button->pos = pos;
+    button->display_function = NULL;
     return (EXIT_SUCCESS);
 }
 

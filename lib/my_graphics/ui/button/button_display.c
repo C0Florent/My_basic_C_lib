@@ -49,7 +49,7 @@ static void update_on_off_button_colour(button_t const *button)
     }
 }
 
-void button_display(sfRenderWindow *wndw, button_t const *button)
+void poc_button_display(sfRenderWindow *wndw, button_t const *button)
 {
     switch (button->type) {
     case BASIC:
@@ -59,4 +59,13 @@ void button_display(sfRenderWindow *wndw, button_t const *button)
         update_on_off_button_colour(button);
     }
     sfRenderWindow_drawRectangleShape(wndw, button->rect, NULL);
+}
+
+void button_display(sfRenderWindow *wndw, button_t const *button)
+{
+    if (button->display_function == NULL) {
+        poc_button_display(wndw, button);
+        return;
+    }
+    button->display_function(wndw, button);
 }
