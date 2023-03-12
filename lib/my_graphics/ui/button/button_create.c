@@ -11,7 +11,18 @@
 #include <SFML/Graphics/RectangleShape.h>
 #include "my_ui.h"
 
-static bool init_button(button_t *button, sfVector2f pos, sfVector2f size)
+static void init_sfrect_shape(sfRectangleShape *rect,
+    sfVector2f size, sfVector2f pos)
+{
+    sfRectangleShape_setPosition(rect, pos);
+    sfRectangleShape_setSize(rect, size);
+    sfRectangleShape_setFillColor(rect, sfWhite);
+    sfRectangleShape_setOutlineColor(rect, sfBlack);
+    sfRectangleShape_setOutlineThickness(rect, 2.2);
+}
+
+static bool init_button(button_t *button, sfVector2f pos,
+    sfVector2f size, enum button_type type)
 {
     button->rect = sfRectangleShape_create();
 
@@ -21,18 +32,20 @@ static bool init_button(button_t *button, sfVector2f pos, sfVector2f size)
         return (EXIT_FAILURE);
     }
     button->state = NONE;
+    button->clicked = false;
+    button->rising_edge = false;
+    button->falling_egde = false;
+    button->type = type;
+    button->on = false;
+    button->on_ptr = NULL;
+    init_sfrect_shape(button->rect, size, pos);
     button->size = size;
     button->pos = pos;
-    button->clicked = false;
-    sfRectangleShape_setPosition(button->rect, pos);
-    sfRectangleShape_setSize(button->rect, size);
-    sfRectangleShape_setFillColor(button->rect, sfWhite);
-    sfRectangleShape_setOutlineColor(button->rect, sfBlack);
-    sfRectangleShape_setOutlineThickness(button->rect, 2.2);
     return (EXIT_SUCCESS);
 }
 
-button_t *button_create(sfVector2f position, sfVector2f size)
+button_t *button_create(sfVector2f position, sfVector2f size,
+enum button_type type)
 {
     button_t *ret = malloc(sizeof(button_t));
     bool init_ret;
@@ -41,7 +54,7 @@ button_t *button_create(sfVector2f position, sfVector2f size)
         write(2, "create_button: malloc error\n", 27);
         return (NULL);
     }
-    init_ret = init_button(ret, position, size);
+    init_ret = init_button(ret, position, size, type);
     if (init_ret == EXIT_FAILURE) {
         return (NULL);
     }

@@ -47,19 +47,38 @@ bool is_mouse_event(sfEvent const *event, sfMouseButton accepted_click);
 //        BUTTONS        //
 ///////////////////////////
 
+enum button_type {
+    BASIC,  // Proceeds the same action on each press,
+            //  typically used for incrementors
+    ON_OFF  // Keeps in memory an on/off state, and can be linked
+            //  to another boolean to update it dynamically
+};
+
 typedef struct {
     enum clickable_ui_elem_state state;
-    bool clicked;   //Remains true as long as a mouse click
-                    //started in the button area is not released
+    bool clicked;       // Remains true as long as a mouse click
+                        //  started in the button area is not released
+    bool rising_edge;   // Is true for 1 frame, when `click` becomes true
+    bool falling_egde;  // Is true for 1 frame, when `click` becomes false
+    enum button_type type;
+
+
+    //Use only if type is ON_OFF
+
+    bool on;        // Local boolean
+    bool *on_ptr;   // Pointer to a boolean that can be modified remotely
+                    //  by a button press. No operation will be done if NULL
+    ///////////////////////////////
 
     sfRectangleShape *rect;
-    sfVector2f pos; //(Center point)
+    sfVector2f pos;     // Center point
     sfVector2f size;
 } button_t;
 
 
 // Function to properly initialise a button_t structure
-button_t *button_create(sfVector2f position, sfVector2f size);
+button_t *button_create(sfVector2f position, sfVector2f size,
+    enum button_type type);
 
 // Function to properly destroy (free) a button_t structure
 void button_destroy(button_t *button);

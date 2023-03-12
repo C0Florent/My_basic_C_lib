@@ -29,9 +29,9 @@ int main(void)
 {
     sfRenderWindow *wndw = my_create_window("test");
     slidebar_t *sb = create_slidebar(vctr2f(1800, 200), vctr2f(100, 20));
-    button_t *button1 = button_create(vctr2f(500, 200), vctr2f(45, 45));
-    button_t *button2 = button_create(vctr2f(575, 200), vctr2f(45, 45));
-    button_t *button3 = button_create(vctr2f(650, 200), vctr2f(45, 45));
+    button_t *button1 = button_create(vctr2f(500, 200), vctr2f(45, 45), BASIC);
+    button_t *button2 = button_create(vctr2f(575, 200), vctr2f(45, 45), ON_OFF);
+    button_t *button3 = button_create(vctr2f(650, 200), vctr2f(45, 45), BASIC);
 
     slidebar_set_bound_values(sb, 0, 5, KEEP_POS);
     while (sfRenderWindow_isOpen(wndw)) {
