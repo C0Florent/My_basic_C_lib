@@ -34,8 +34,10 @@ static void update_on_off_button_colour(button_t const *button)
         sfRectangleShape_setOutlineColor(button->rect, sfBlack);
         break;
     case HOVER:
-    case PRESSED:
         sfRectangleShape_setOutlineColor(button->rect, sfYellow);
+        break;
+    case PRESSED:
+        sfRectangleShape_setOutlineColor(button->rect, sfRed);
         break;
     default:
         break;
