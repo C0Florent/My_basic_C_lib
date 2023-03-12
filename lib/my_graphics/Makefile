@@ -19,6 +19,7 @@ SRC	=	vctr.c								\
 		ui/button/button_create.c			\
 		ui/button/button_destroy.c			\
 		ui/button/button_display.c			\
+		ui/button/frame_reset_button.c		\
 		ui/button/update_button_state.c
 
 OBJ	=	$(SRC:.c=.o)

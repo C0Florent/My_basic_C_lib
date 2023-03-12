@@ -47,9 +47,13 @@ static void read_mouse_event(button_t *button, sfEvent const *event,
     bool is_mouse_in = is_mouse_on_button(mouse_x, mouse_y, button);
 
     if (event->type == sfEvtMouseButtonReleased) {
+        if (button->clicked) {
+            button->falling_egde = true;
+        }
         button->clicked = false;
     }
     if (event->type == sfEvtMouseButtonPressed && is_mouse_in) {
+        button->rising_edge = true;
         button->clicked = true;
     }
     switch (is_mouse_in) {

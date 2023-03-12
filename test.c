@@ -14,6 +14,9 @@ button_t *btn1, button_t *btn2, button_t *btn3)
 {
     sfEvent event;
 
+    frame_reset_button(btn1);
+    frame_reset_button(btn2);
+    frame_reset_button(btn3);
     while (sfRenderWindow_pollEvent(wndw, &event)) {
         if (event.type == sfEvtClosed) {
             sfRenderWindow_close(wndw);
@@ -22,6 +25,14 @@ button_t *btn1, button_t *btn2, button_t *btn3)
         update_button_state(btn1, &event);
         update_button_state(btn2, &event);
         update_button_state(btn3, &event);
+    }
+    if (btn1->rising_edge) {
+        printf("Pressed!...   ");
+        fflush(stdout);
+    }
+    if (btn1->falling_egde) {
+        printf("Released!\n");
+        fflush(stdout);
     }
 }
 
@@ -39,8 +50,8 @@ int main(void)
         button_display(wndw, button1);
         button_display(wndw, button2);
         button_display(wndw, button3);
-        printf("\r%f", sb->value);
-        fflush(stdout);
+        // printf("\r%f", sb->value);
+        // fflush(stdout);
         sfRenderWindow_display(wndw);
         sfRenderWindow_clear(wndw, sfColor_fromInteger(0x23272A00));
         analyse_events(wndw, sb, button1, button2, button3);

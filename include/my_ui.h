@@ -86,6 +86,10 @@ void button_destroy(button_t *button);
 // Function to draw a button on the window's framebuffer
 void button_display(sfRenderWindow *wndw, button_t const *button);
 
+// Function to be called once per frame,
+// to reset the button's falling edge and rising edge booleans
+void frame_reset_button(button_t *button);
+
 // Function to be called during the sfRenderWindow_pollEvent loop,
 // to update the button's internal state depending on mouse actions
 void update_button_state(button_t *button, sfEvent const *event);
