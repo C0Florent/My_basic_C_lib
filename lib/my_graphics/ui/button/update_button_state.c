@@ -65,6 +65,16 @@ static void read_mouse_event(button_t *button, sfEvent const *event,
     }
 }
 
+static void handle_on_off_switch(button_t *button)
+{
+    if (button->falling_egde) {
+        button->on = !(button->on);
+        if (button->on_ptr != NULL) {
+            *button->on_ptr = !(*button->on_ptr);
+        }
+    }
+}
+
 void update_button_state(button_t *button, sfEvent const *event)
 {
     float mouse_x;
@@ -75,4 +85,5 @@ void update_button_state(button_t *button, sfEvent const *event)
     }
     get_mouse_pos(&mouse_x, &mouse_y, event);
     read_mouse_event(button, event, mouse_x, mouse_y);
+    handle_on_off_switch(button);
 }

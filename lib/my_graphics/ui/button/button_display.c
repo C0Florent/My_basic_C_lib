@@ -9,7 +9,7 @@
 #include <SFML/Graphics/RenderWindow.h>
 #include "my_ui.h"
 
-static void update_button_colour(button_t const *button)
+static void update_basic_button_colour(button_t const *button)
 {
     switch (button->state) {
     case NONE:
@@ -27,8 +27,36 @@ static void update_button_colour(button_t const *button)
     }
 }
 
+static void update_on_off_button_colour(button_t const *button)
+{
+    switch (button->state) {
+    case RELEASED:
+        sfRectangleShape_setOutlineColor(button->rect, sfBlack);
+        break;
+    case HOVER:
+    case PRESSED:
+        sfRectangleShape_setOutlineColor(button->rect, sfYellow);
+        break;
+    default:
+        break;
+    }
+    switch (button->on) {
+    case true:
+        sfRectangleShape_setFillColor(button->rect, sfCyan);
+        break;
+    case false:
+        sfRectangleShape_setFillColor(button->rect, sfMagenta);
+    }
+}
+
 void button_display(sfRenderWindow *wndw, button_t const *button)
 {
-    update_button_colour(button);
+    switch (button->type) {
+    case BASIC:
+        update_basic_button_colour(button);
+        break;
+    case ON_OFF:
+        update_on_off_button_colour(button);
+    }
     sfRenderWindow_drawRectangleShape(wndw, button->rect, NULL);
 }
