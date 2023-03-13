@@ -23,7 +23,7 @@ double poly(vector_t *coefs, double x)
         return (NAN);
     }
     result = coefs->coords[coefs->size - 1];
-    for (unsigned int i = coefs->size - 2; i >= 0; i++) {
+    for (int i = coefs->size - 2; i >= 0; i--) {
         result *= x;
         result += coefs->coords[i];
     }
