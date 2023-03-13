@@ -27,7 +27,7 @@ int inverse(matrix_t const *src, matrix_t *dest)
     matrix_t *dup;
     double det;
 
-    if (are_args_valid == false) {
+    if (are_args_valid(src, dest) == false) {
         return (84);
     }
     dup = matrix_dup(src);
