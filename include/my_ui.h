@@ -109,6 +109,10 @@ void poc_button_display(sfRenderWindow *wndw, button_t const *button);
 // to reset the button's falling edge and rising edge booleans
 void frame_reset_button(button_t *button);
 
+// Returns true if the given coordinates are within the button boundary
+bool is_mouse_on_button(float mouse_x, float mouse_y,
+button_t const *button);
+
 // Function to be called during the sfRenderWindow_pollEvent loop,
 // to update the button's internal state depending on mouse actions
 void update_button_state(button_t *button, sfEvent const *event);
@@ -185,6 +189,7 @@ typedef struct menu_option {
     sfText *rendername;
     button_t *option;
     bool requests_action;
+    bool requests_menu_close;
 
     struct menu_option *next;
 } menu_opt_t;
