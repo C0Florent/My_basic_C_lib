@@ -20,6 +20,7 @@ static void init_rendername(dropdown_menu_t *menu, char const *name,
     sfText_setString(menu->rendername, menu->name);
     sfText_setFont(menu->rendername, font);
     sfText_setPosition(menu->rendername, pos);
+    sfText_setFillColor(menu->rendername, sfBlack);
 }
 
 static void init_button(dropdown_menu_t *menu)
@@ -27,7 +28,7 @@ static void init_button(dropdown_menu_t *menu)
     sfFloatRect txt_bounds = sfText_getGlobalBounds(menu->rendername);
     sfVector2f center = {txt_bounds.left + txt_bounds.width / 2,
                         txt_bounds.top + txt_bounds.height / 2};
-    sfVector2f size = {txt_bounds.height + 10, txt_bounds.width + 10};
+    sfVector2f size = {txt_bounds.width + 10, txt_bounds.height + 10};
 
     menu->menu_button = button_create(center, size, ON_OFF);
     sfRectangleShape_setOutlineThickness(menu->menu_button->rect, 1.2);
