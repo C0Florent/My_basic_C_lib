@@ -24,7 +24,8 @@ SRC	=	vctr.c								\
 		ui/menu/create_menu.c				\
 		ui/menu/destroy_menu.c				\
 		ui/menu/display_menu.c				\
-		ui/menu/display_menu_button.c
+		ui/menu/display_menu_button.c		\
+		ui/menu/update_menu.c
 
 OBJ	=	$(SRC:.c=.o)
 

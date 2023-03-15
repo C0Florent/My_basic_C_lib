@@ -11,13 +11,14 @@
 #include <stdio.h>
 
 static void analyse_events(sfRenderWindow *wndw, slidebar_t *sb,
-button_t *btn1, button_t *btn2, button_t *btn3)
+button_t *btn1, button_t *btn2, button_t *btn3, dropdown_menu_t *menu)
 {
     sfEvent event;
 
     frame_reset_button(btn1);
     frame_reset_button(btn2);
     frame_reset_button(btn3);
+    frame_reset_button(menu->menu_button);
     while (sfRenderWindow_pollEvent(wndw, &event)) {
         if (event.type == sfEvtClosed) {
             sfRenderWindow_close(wndw);
@@ -26,6 +27,7 @@ button_t *btn1, button_t *btn2, button_t *btn3)
         update_button_state(btn1, &event);
         update_button_state(btn2, &event);
         update_button_state(btn3, &event);
+        update_menu(menu, &event);
     }
     if (btn1->rising_edge) {
         printf("Pressed!...   ");
@@ -50,7 +52,7 @@ int main(void)
     slidebar_set_bound_values(sb, 0, 5, KEEP_POS);
     while (sfRenderWindow_isOpen(wndw)) {
         sfRenderWindow_clear(wndw, sfColor_fromInteger(0x23272A00));
-        analyse_events(wndw, sb, button1, button2, button3);
+        analyse_events(wndw, sb, button1, button2, button3, menu);
         display_slidebar(wndw, sb);
         button_display(wndw, button1);
         button_display(wndw, button2);
