@@ -35,6 +35,16 @@ enum clickable_ui_elem_state {
     RELEASED
 };
 
+/// COLOURS ///
+
+#define MY_PINK         sfColor_fromInteger(0xFF54A6FF)
+#define MY_SKYBLUE      sfColor_fromInteger(0x00FFFBFF)
+#define DISCORD_GREY    sfColor_fromInteger(0x23272A00)
+#define MY_LIGHTGREY    sfColor_fromInteger(0xD4D4D4FF)
+#define MY_MIDGREY      sfColor_fromInteger(0x808080FF)
+#define MY_DARKGREY     sfColor_fromInteger(0x424242FF)
+#define MY_BLUE         sfColor_fromInteger(0x3D70E0FF)
+
 
 // Function to check if a sfEvent refers to a mouse event
 // (and even of a specific mouse button for press/release events)
@@ -201,6 +211,8 @@ void update_menu(dropdown_menu_t *menu);
 
 void display_option_button(sfRenderWindow *wndw, button_t const *button);
 
-void display_menu(dropdown_menu_t const *menu);
+void display_menu_button(sfRenderWindow *wndw, button_t const *button);
+
+void display_menu(sfRenderWindow *window, dropdown_menu_t const *menu);
 
 #endif /* !MY_SLIDEBAR_H_ */
