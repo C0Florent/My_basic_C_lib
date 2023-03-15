@@ -29,7 +29,7 @@ static void update_fill_colour(button_t const *button)
 {
     switch (button->on) {
     case true:
-        sfRectangleShape_setFillColor(button->rect, MY_MIDGREY);
+        sfRectangleShape_setFillColor(button->rect, MY_LIGHTGREY);
         break;
     case false:
         sfRectangleShape_setFillColor(button->rect, sfWhite);
