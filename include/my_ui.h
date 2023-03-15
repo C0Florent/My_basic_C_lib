@@ -212,6 +212,10 @@ void add_menu_option(dropdown_menu_t *menu, char const *option_name);
 
 void destroy_menu(dropdown_menu_t *menu);
 
+// Function to be called once per fram,
+// to reset the menu's buttons' falling and rising edge booleans
+void frame_reset_menu(dropdown_menu_t *menu);
+
 // Function to be called once per frame, to update the menu's state
 void update_menu(dropdown_menu_t *menu, sfEvent const *event);
 

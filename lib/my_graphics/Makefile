@@ -19,7 +19,7 @@ SRC	=	vctr.c								\
 		ui/button/button_create.c			\
 		ui/button/button_destroy.c			\
 		ui/button/button_display.c			\
-		ui/button/frame_reset_button.c		\
+		ui/button/frame_reset.c				\
 		ui/button/update_button_state.c		\
 		ui/menu/create_menu.c				\
 		ui/menu/destroy_menu.c				\

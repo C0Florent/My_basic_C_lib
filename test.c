@@ -18,7 +18,7 @@ button_t *btn1, button_t *btn2, button_t *btn3, dropdown_menu_t *menu)
     frame_reset_button(btn1);
     frame_reset_button(btn2);
     frame_reset_button(btn3);
-    frame_reset_button(menu->menu_button);
+    frame_reset_menu(menu);
     while (sfRenderWindow_pollEvent(wndw, &event)) {
         if (event.type == sfEvtClosed) {
             sfRenderWindow_close(wndw);
@@ -47,7 +47,7 @@ int main(void)
     button_t *button2 = button_create(vctr2f(575, 200), vctr2f(45, 45), ON_OFF);
     button_t *button3 = button_create(vctr2f(650, 200), vctr2f(45, 45), BASIC);
     sfFont *font = sfFont_createFromFile("assets/Calibri Regular.ttf");
-    dropdown_menu_t *menu = create_menu("iiiiii\nii\n iiii.", font, vctr2f(50, 100));
+    dropdown_menu_t *menu = create_menu("File", font, vctr2f(50, 100));
 
     slidebar_set_bound_values(sb, 0, 5, KEEP_POS);
     while (sfRenderWindow_isOpen(wndw)) {
