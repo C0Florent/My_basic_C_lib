@@ -14,7 +14,9 @@
 static void init_sfrect_shape(sfRectangleShape *rect,
     sfVector2f size, sfVector2f pos)
 {
-    sfRectangleShape_setPosition(rect, pos);
+    sfVector2f center_pos = {pos.x - size.x / 2, pos.y - size.y / 2};
+
+    sfRectangleShape_setPosition(rect, center_pos);
     sfRectangleShape_setSize(rect, size);
     sfRectangleShape_setFillColor(rect, sfWhite);
     sfRectangleShape_setOutlineColor(rect, sfBlack);
