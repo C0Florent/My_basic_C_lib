@@ -22,7 +22,9 @@ SRC	=	vctr.c								\
 		ui/button/frame_reset_button.c		\
 		ui/button/update_button_state.c		\
 		ui/menu/create_menu.c				\
-		ui/menu/destroy_menu.c
+		ui/menu/destroy_menu.c				\
+		ui/menu/display_menu.c				\
+		ui/menu/display_menu_button.c
 
 OBJ	=	$(SRC:.c=.o)
 
