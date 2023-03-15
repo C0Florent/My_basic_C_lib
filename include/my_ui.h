@@ -192,6 +192,7 @@ typedef struct menu_option {
 typedef struct {
     char *name;
     unsigned int opt_count;
+    bool is_folded;
     sfFont *font;           // Font to be used for the whole menu
     sfText *rendername;     // Title of the menu
     sfVector2f pos;         // Top left corner
@@ -207,10 +208,9 @@ void add_menu_option(dropdown_menu_t *menu, char const *option_name);
 void destroy_menu(dropdown_menu_t *menu);
 
 // Function to be called once per frame, to update the menu's state
-void update_menu(dropdown_menu_t *menu);
+void update_menu(dropdown_menu_t *menu, sfEvent const *event);
 
 void display_option_button(sfRenderWindow *wndw, button_t const *button);
-
 void display_menu_button(sfRenderWindow *wndw, button_t const *button);
 
 void display_menu(sfRenderWindow *window, dropdown_menu_t const *menu);

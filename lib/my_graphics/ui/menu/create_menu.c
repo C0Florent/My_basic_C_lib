@@ -47,6 +47,7 @@ dropdown_menu_t *create_menu(char const *name, sfFont *font, sfVector2f pos)
     init_button(ret);
     ret->font = font;
     ret->pos = pos;
+    ret->is_folded = true;
     ret->opt_count = 0;
     ret->option_ll = NULL;
     return (ret);
