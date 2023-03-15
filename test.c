@@ -50,8 +50,6 @@ int main(void)
         button_display(wndw, button1);
         button_display(wndw, button2);
         button_display(wndw, button3);
-        // printf("\r%f", sb->value);
-        // fflush(stdout);
         sfRenderWindow_display(wndw);
         sfRenderWindow_clear(wndw, sfColor_fromInteger(0x23272A00));
         analyse_events(wndw, sb, button1, button2, button3);

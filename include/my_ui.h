@@ -163,4 +163,42 @@ sfMouseButtonEvent const *click_pos);
 // updating its graphical position accordingly
 void slidebar_cursor_set_value(slidebar_t *sb, float value);
 
+
+
+
+//////////////////////////////////
+//        DROP DOWN MENUS       //
+//////////////////////////////////
+
+typedef struct menu_option {
+    char const *name;
+    sfText *rendername;
+    button_t *option;
+    bool requests_action;
+
+    struct menu_option *next;
+} menu_opt_t;
+
+typedef struct {
+    char const *name;
+    unsigned int opt_count;
+    sfFont *font;           // Font to be used for the whole menu
+    sfText *rendername;     // Title of the menu
+    sfVector2f pos;         // Top left corner
+    button_t *menu_button;  // Appears even when the menu is folded up
+    menu_opt_t *option_ll;  // Linked list containing the options
+} dropdown_menu_t;
+
+
+dropdown_menu_t *create_menu(char const *name, sfFont *font, sfVector2f pos);
+
+void add_menu_option(dropdown_menu_t *menu, char const *option_name);
+
+void destroy_menu(dropdown_menu_t *menu);
+
+// Function to be called once per frame, to update the menu's state
+void update_menu(dropdown_menu_t *menu);
+
+void display_menu(dropdown_menu_t const *menu);
+
 #endif /* !MY_SLIDEBAR_H_ */
