@@ -171,7 +171,7 @@ void slidebar_cursor_set_value(slidebar_t *sb, float value);
 //////////////////////////////////
 
 typedef struct menu_option {
-    char const *name;
+    char *name;
     sfText *rendername;
     button_t *option;
     bool requests_action;
@@ -180,7 +180,7 @@ typedef struct menu_option {
 } menu_opt_t;
 
 typedef struct {
-    char const *name;
+    char *name;
     unsigned int opt_count;
     sfFont *font;           // Font to be used for the whole menu
     sfText *rendername;     // Title of the menu
@@ -198,6 +198,8 @@ void destroy_menu(dropdown_menu_t *menu);
 
 // Function to be called once per frame, to update the menu's state
 void update_menu(dropdown_menu_t *menu);
+
+void display_option_button(sfRenderWindow *wndw, button_t const *button);
 
 void display_menu(dropdown_menu_t const *menu);
 

@@ -43,6 +43,7 @@ int main(void)
     button_t *button1 = button_create(vctr2f(500, 200), vctr2f(45, 45), BASIC);
     button_t *button2 = button_create(vctr2f(575, 200), vctr2f(45, 45), ON_OFF);
     button_t *button3 = button_create(vctr2f(650, 200), vctr2f(45, 45), BASIC);
+    dropdown_menu_t *menu = create_menu("File...", NULL, vctr2f(50, 100));
 
     slidebar_set_bound_values(sb, 0, 5, KEEP_POS);
     while (sfRenderWindow_isOpen(wndw)) {
@@ -58,6 +59,7 @@ int main(void)
     button_destroy(button1);
     button_destroy(button2);
     button_destroy(button3);
+    destroy_menu(menu);
     sfRenderWindow_destroy(wndw);
     printf("\n");
     return (0);

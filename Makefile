@@ -23,10 +23,11 @@ SRC	=	test.c
 
 LIBPATH	=	./lib
 
-MY_LIBS	=	my_printf	\
+MY_LIBS	=	my_graphics	\
+			my_printf	\
 			newmy		\
-			my			\
-			my_graphics
+			my
+			
 
 ## Just write 'OTHER_LIBS	=	NONE' if the
 ## source files do not need any external libs
