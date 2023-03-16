@@ -27,7 +27,7 @@ MY_LIBS	=	my_graphics	\
 			my_printf	\
 			newmy		\
 			my
-			
+
 
 ## Just write 'OTHER_LIBS	=	NONE' if the
 ## source files do not need any external libs
