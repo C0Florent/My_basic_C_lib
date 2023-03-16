@@ -50,6 +50,7 @@ int main(void)
     dropdown_menu_t *menu = create_menu("File", font, vctr2f(50, 100));
 
     slidebar_set_bound_values(sb, 0, 5, KEEP_POS);
+    add_menu_option(menu, "Test");
     while (sfRenderWindow_isOpen(wndw)) {
         sfRenderWindow_clear(wndw, sfColor_fromInteger(0x23272A00));
         analyse_events(wndw, sb, button1, button2, button3, menu);
