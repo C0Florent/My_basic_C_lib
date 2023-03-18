@@ -31,7 +31,7 @@ static void init_button(dropdown_menu_t *menu)
     sfVector2f size = {txt_bounds.width + 10, txt_bounds.height + 10};
 
     menu->menu_button = button_create(center, size, ON_OFF);
-    sfRectangleShape_setOutlineThickness(menu->menu_button->rect, 1.2);
+    sfRectangleShape_setOutlineThickness(menu->menu_button->rect, 2);
     menu->menu_button->display_function = &display_menu_button;
 }
 
