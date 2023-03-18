@@ -61,6 +61,7 @@ static menu_opt_t *init_option(dropdown_menu_t *menu, char const *opt_name)
     sfText_setString(ret->rendername, opt_name);
     sfText_setFillColor(ret->rendername, sfBlack);
     ret->option = init_option_button(menu, ret->rendername);
+    ret->option->display_function = &display_option_button;
     text_pos = ret->option->pos;
     text_pos.x -= ret->option->size.x / 2 - 5;
     text_pos.y -= ret->option->size.y / 2 + 5;
