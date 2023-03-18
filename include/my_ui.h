@@ -119,7 +119,8 @@ void slidebar_cursor_set_value(slidebar_t *sb, float value);
 
 dropdown_menu_t *create_menu(char const *name, sfFont *font, sfVector2f pos);
 
-void add_menu_option(dropdown_menu_t *menu, char const *option_name);
+void add_menu_option(dropdown_menu_t *menu, char const *option_name,
+enum button_type type);
 
 void destroy_menu(dropdown_menu_t *menu);
 

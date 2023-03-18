@@ -25,6 +25,7 @@ SRC	=	vctr.c								\
 		ui/menu/destroy_menu.c				\
 		ui/menu/display_menu.c				\
 		ui/menu/display_menu_button.c		\
+		ui/menu/display_option_button.c		\
 		ui/menu/update_menu.c				\
 		ui/menu/add_menu_option.c
 

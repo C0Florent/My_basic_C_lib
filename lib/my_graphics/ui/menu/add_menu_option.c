@@ -30,7 +30,7 @@ static sfVector2f get_button_pos(dropdown_menu_t const *menu,
 }
 
 static button_t *init_option_button(dropdown_menu_t const *menu,
-    sfText *rendername)
+    sfText *rendername, enum button_type type)
 {
     button_t *ret;
     sfVector2f button_size;
@@ -39,12 +39,13 @@ static button_t *init_option_button(dropdown_menu_t const *menu,
     button_size.x = 300;
     button_size.y = sfText_getGlobalBounds(rendername).height + 10;
     button_pos = get_button_pos(menu, button_size);
-    ret = button_create(button_pos, button_size, BASIC);
+    ret = button_create(button_pos, button_size, type);
     sfRectangleShape_setOutlineThickness(ret->rect, 2);
     return (ret);
 }
 
-static menu_opt_t *init_option(dropdown_menu_t *menu, char const *opt_name)
+static menu_opt_t *init_option(dropdown_menu_t *menu, char const *opt_name,
+    enum button_type type)
 {
     menu_opt_t *ret = malloc(sizeof(menu_opt_t));
     sfVector2f text_pos;
@@ -60,7 +61,7 @@ static menu_opt_t *init_option(dropdown_menu_t *menu, char const *opt_name)
     sfText_setFont(ret->rendername, menu->font);
     sfText_setString(ret->rendername, opt_name);
     sfText_setFillColor(ret->rendername, sfBlack);
-    ret->option = init_option_button(menu, ret->rendername);
+    ret->option = init_option_button(menu, ret->rendername, type);
     ret->option->display_function = &display_option_button;
     text_pos = ret->option->pos;
     text_pos.x -= ret->option->size.x / 2 - 5;
@@ -69,9 +70,10 @@ static menu_opt_t *init_option(dropdown_menu_t *menu, char const *opt_name)
     return (ret);
 }
 
-void add_menu_option(dropdown_menu_t *menu, char const *opt_name)
+void add_menu_option(dropdown_menu_t *menu, char const *opt_name,
+enum button_type type)
 {
-    menu_opt_t *new_opt = init_option(menu, opt_name);
+    menu_opt_t *new_opt = init_option(menu, opt_name, type);
 
     if (new_opt == NULL) {
         return;
