@@ -20,7 +20,7 @@ static sfVector2f get_button_pos(dropdown_menu_t const *menu,
     if (menu->opt_count == 0) {
         ret.x = menu->menu_button->pos.x - menu->menu_button->size.x / 2 + 150;
         ret.y = menu->menu_button->pos.y +
-            menu->menu_button->size.y / 2 + button_size.y / 2;
+            menu->menu_button->size.y / 2 + button_size.y / 2 + 4;
     } else {
         ret.x = menu->option_ll->option->pos.x;
         ret.y = menu->option_ll->option->pos.y +
@@ -29,7 +29,7 @@ static sfVector2f get_button_pos(dropdown_menu_t const *menu,
     return (ret);
 }
 
-static button_t *init_option_button(__attribute((unused))dropdown_menu_t const *menu,
+static button_t *init_option_button(dropdown_menu_t const *menu,
     sfText *rendername)
 {
     button_t *ret;
