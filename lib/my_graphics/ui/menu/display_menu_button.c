@@ -13,7 +13,11 @@ static void update_outline_colour(button_t const *button)
 {
     switch (button->state) {
     case RELEASED:
-        sfRectangleShape_setOutlineColor(button->rect, sfWhite);
+        if (button->on == false) {
+            sfRectangleShape_setOutlineColor(button->rect, sfWhite);
+        } else {
+            sfRectangleShape_setOutlineColor(button->rect, MY_LIGHTGREY);   
+        }
         break;
     case HOVER:
         sfRectangleShape_setOutlineColor(button->rect, MY_BLUE);
