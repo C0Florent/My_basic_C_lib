@@ -40,6 +40,7 @@ static bool check_if_menu_closed(dropdown_menu_t *menu, sfEvent const *event)
     }
     for (menu_opt_t *i = menu->option_ll; i != NULL; i = i->next) {
         if (i->requests_menu_close) {
+            i->requests_menu_close = false;
             return (true);
         }
     }
