@@ -7,18 +7,19 @@
 ##
 
 SRC	=	alloc_matrix_t.c		\
-			set_to_zero.c			\
-			set_to_id.c				\
-			scalar.c				\
-			matrix_copy.c			\
-			matrix_product.c		\
-			matrix_t_free.c			\
-			show_matrix.c			\
-			transpose.c				\
-			submatrix.c				\
-			determinant.c			\
-			comatrix.c				\
-			inverse.c
+		set_to_zero.c			\
+		set_to_id.c				\
+		scalar.c				\
+		addition.c				\
+		matrix_copy.c			\
+		matrix_product.c		\
+		matrix_t_free.c			\
+		show_matrix.c			\
+		transpose.c				\
+		submatrix.c				\
+		determinant.c			\
+		comatrix.c				\
+		inverse.c
 
 ## By default, there are no additional CFLAGS, this
 ## variable is there to allow other Makefiles calling

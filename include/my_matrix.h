@@ -30,6 +30,9 @@ void set_to_id(matrix_t *m, bool silent);
 
 void scalar(matrix_t *m, double scale);
 
+// Computes the sum of two matrices
+void addition(matrix_t const *m1, matrix_t const *m2, matrix_t *res);
+
 void product(matrix_t *m1, matrix_t *m2, matrix_t *result);
 
 void matrix_copy(matrix_t const *src, matrix_t *dest);
