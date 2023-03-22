@@ -126,6 +126,8 @@ int count_occurencies(char const *tested_str, char to_count);
 // Only copies the pointer, without any allocation
 imp_str_t *get_str_to_imp_str(char *str);
 
+
+
 // Reads one line of given in file descriptor `fd` and stores it
 // in `*lineptr`, reallocating it if need be, and accordingly setting
 // `*bufsiz_ptr` to match the size of allocated buffer
@@ -136,6 +138,16 @@ imp_str_t *get_str_to_imp_str(char *str);
 // -84: invalid arguments
 // -42: allocation error occurred during execution
 ssize_t my_fdgetline(char **lineptr, size_t *bufsiz_ptr, int fd);
+
+// Same as my_fdgetline, except that the delimitor may be other than newline,
+// as specified in the `delim` argument
+ssize_t my_fdgetdelim(char **lineptr, size_t *bufsiz_ptr, char delim, int fd);
+
+// The same as my_fdgetdelim, except there can be several delimitor characters.
+// The read will stop at the when a character that appears in `delims` is read.
+ssize_t my_fdgetdelims(char **lineptr, size_t *bufsiz_ptr,
+    char const *delims, int fd);
+
 
 
 /* STRING ARRAY TOOLS */
