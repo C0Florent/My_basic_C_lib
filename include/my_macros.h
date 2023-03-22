@@ -25,4 +25,8 @@
         #define EXIT_SUCCESS 0
     #endif /* EXIT_SUCCESS */
 
+    #define STDIN   0
+    #define STDOUT  1
+    #define STDERR  2
+
 #endif /* !MY_MACROS_H_ */
