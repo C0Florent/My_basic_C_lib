@@ -37,7 +37,7 @@ int my_find_prime_sup(int n);
 char *my_strcpy(char *dest, char const *src);
 char *my_strncpy(char *dest, char const *src, int n);
 char *my_revstr(char *str);
-char *my_strstr(char *, char const *);
+char *my_strstr(char *str, char const *to_find);
 int my_strcmp(char const *str1, char const *str2);
 int my_strncmp(char const *str1, char const *str2, int n);
 char *my_strupcase(char *str);
