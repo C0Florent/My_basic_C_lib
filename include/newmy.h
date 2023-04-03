@@ -15,6 +15,7 @@
 
     #include <sys/types.h>
     #include <stdbool.h>
+    #include "coords_2d.h"
 
 
 
@@ -52,14 +53,6 @@ typedef struct impish_string_s {
     unsigned int strlen;
 } imp_str_t;
 
-    #ifndef _2D_COORD_T
-        #define _2D_COORD_T
-typedef struct coordinates_2d {
-    int x;
-    int y;
-} _2d_coords_t;
-
-    #endif /* ! 2D_COORD_T */
 
 
 
@@ -92,8 +85,6 @@ int mega_put_nbr(long long nb, unsigned char base);
 // Does not allocate nor checks if buffer is big enough, use cautiously
 int mega_save_nbr(char *buf, unsigned long long nb, unsigned char base);
 
-// Checks if 2 _2d_coord_t structures are exactly equal in both axes
-bool eq_2d_coords(_2d_coords_t const *c1, _2d_coords_t const *c2);
 
 
 
@@ -105,6 +96,12 @@ void my_putsterr(char const *str);
 
 // Writes a string to any fd
 int my_fdputs(char const *str, int fd);
+
+// Searches for a pattern (needle) in a bigger string and returns the
+// index corresponding to the starting point of the found pattern
+//
+// Returns -1 if the needle is not found
+ssize_t my_strstr_pos(char const *haystack, char const *needle);
 
 // Dupes the (at most) n first bytes of src and returns it
 //
