@@ -23,12 +23,13 @@ static bool is_menu_folded(dropdown_menu_t const *menu)
     return (true);
 }
 
-static void update_buttons(dropdown_menu_t *menu, sfEvent const *event)
+static void update_buttons(dropdown_menu_t *menu, sfEvent const *event,
+    sfVector2f window_scale)
 {
-    update_button_state(menu->menu_button, event);
+    update_button_state(menu->menu_button, event, window_scale);
     if (menu->is_folded == false) {
         for (menu_opt_t *i = menu->option_ll; i != NULL; i = i->next) {
-            update_button_state(i->option, event);
+            update_button_state(i->option, event, window_scale);
         }
     }
 }
@@ -51,9 +52,9 @@ static bool check_if_menu_closed(dropdown_menu_t *menu, sfEvent const *event)
     return (false);
 }
 
-void update_menu(dropdown_menu_t *menu, sfEvent const *event)
+void update_menu(dropdown_menu_t *menu, sfEvent const *event, sfVector2f wn_sc)
 {
-    update_buttons(menu, event);
+    update_buttons(menu, event, wn_sc);
     if (check_if_menu_closed(menu, event)) {
         menu->menu_button->on = false;
         if (menu->menu_button->on_ptr != NULL) {

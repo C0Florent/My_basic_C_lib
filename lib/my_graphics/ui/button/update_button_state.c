@@ -24,23 +24,6 @@ button_t const *button)
     }
 }
 
-static void get_mouse_pos(float *x, float *y, sfEvent const *event)
-{
-    switch (event->type) {
-    case sfEvtMouseButtonPressed:
-    case sfEvtMouseButtonReleased:
-        *x = event->mouseButton.x;
-        *y = event->mouseButton.y;
-        break;
-    case sfEvtMouseMoved:
-        *x = event->mouseMove.x;
-        *y = event->mouseMove.y;
-        break;
-    default:
-        break;
-    }
-}
-
 static void read_mouse_event(button_t *button, sfEvent const *event,
     float mouse_x, float mouse_y)
 {
@@ -76,15 +59,15 @@ static void handle_on_off_switch(button_t *button,
     }
 }
 
-void update_button_state(button_t *button, sfEvent const *event)
+void update_button_state(button_t *button, sfEvent const *event,
+sfVector2f window_scale)
 {
-    float mouse_x;
-    float mouse_y;
+    sfVector2f mouse_pos;
 
     if (is_mouse_event(event, sfMouseLeft) == false) {
         return;
     }
-    get_mouse_pos(&mouse_x, &mouse_y, event);
-    read_mouse_event(button, event, mouse_x, mouse_y);
-    handle_on_off_switch(button, mouse_x, mouse_y);
+    mouse_pos = get_scaled_mouse_pos(event, window_scale);
+    read_mouse_event(button, event, mouse_pos.x, mouse_pos.y);
+    handle_on_off_switch(button, mouse_pos.x, mouse_pos.y);
 }

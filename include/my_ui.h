@@ -27,6 +27,14 @@
 // (and even of a specific mouse button for press/release events)
 bool is_mouse_event(sfEvent const *event, sfMouseButton accepted_click);
 
+// Returns the mouse position contained in the
+// sfEvent, or (-84;-84) if not a mouse event
+sfVector2f get_mouse_pos(sfEvent const *event);
+
+
+// Scale should be (initial_size / current_size) i.e. the reduction scale
+sfVector2f get_scaled_mouse_pos(sfEvent const *event, sfVector2f scale);
+
 
 
 ///////////////////////////
@@ -59,7 +67,8 @@ button_t const *button);
 
 // Function to be called during the sfRenderWindow_pollEvent loop,
 // to update the button's internal state depending on mouse actions
-void update_button_state(button_t *button, sfEvent const *event);
+void update_button_state(button_t *button, sfEvent const *event,
+sfVector2f window_scale);
 
 
 /////////////////////////////
@@ -129,7 +138,8 @@ void destroy_menu(dropdown_menu_t *menu);
 void frame_reset_menu(dropdown_menu_t *menu);
 
 // Function to be called once per frame, to update the menu's state
-void update_menu(dropdown_menu_t *menu, sfEvent const *event);
+void update_menu(dropdown_menu_t *menu, sfEvent const *event,
+sfVector2f wndw_scale);
 
 void display_option_button(sfRenderWindow *wndw, button_t const *button);
 void display_menu_button(sfRenderWindow *wndw, button_t const *button);

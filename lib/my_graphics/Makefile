@@ -10,6 +10,7 @@ SRC	=	vctr.c								\
 		my_create_sprite_from_file.c		\
 		destroy_disp_sprt.c					\
 		ui/is_mouse_event.c					\
+		ui/get_mouse_pos.c					\
 		ui/slidebar/create_slidebar.c		\
 		ui/slidebar/display_slidebar.c		\
 		ui/slidebar/move_cursor.c			\

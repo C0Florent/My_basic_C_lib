@@ -20,11 +20,11 @@ static sfVector2f get_button_pos(dropdown_menu_t const *menu,
     if (menu->opt_count == 0) {
         ret.x = menu->menu_button->pos.x - menu->menu_button->size.x / 2 + 150;
         ret.y = menu->menu_button->pos.y +
-            menu->menu_button->size.y / 2 + button_size.y / 2 + 4;
+            menu->menu_button->size.y / 2 + button_size.y / 2 + 3.8;
     } else {
         ret.x = menu->option_ll->option->pos.x;
         ret.y = menu->option_ll->option->pos.y +
-            menu->option_ll->option->size.y / 2 + button_size.y / 2 + 4;
+            menu->option_ll->option->size.y / 2 + button_size.y / 2 + 3.8;
     }
     return (ret);
 }
@@ -44,6 +44,16 @@ static button_t *init_option_button(dropdown_menu_t const *menu,
     return (ret);
 }
 
+static sfText *init_sftext(sfFont *font, char const *opt_name)
+{
+    sfText *ret = sfText_create();
+
+    sfText_setFont(ret, font);
+    sfText_setString(ret, opt_name);
+    sfText_setFillColor(ret, sfBlack);
+    return (ret);
+}
+
 static menu_opt_t *init_option(dropdown_menu_t *menu, char const *opt_name,
     enum button_type type)
 {
@@ -57,10 +67,7 @@ static menu_opt_t *init_option(dropdown_menu_t *menu, char const *opt_name,
     ret->requests_action = false;
     ret->requests_menu_close = false;
     ret->name = my_strdup(opt_name);
-    ret->rendername = sfText_create();
-    sfText_setFont(ret->rendername, menu->font);
-    sfText_setString(ret->rendername, opt_name);
-    sfText_setFillColor(ret->rendername, sfBlack);
+    ret->rendername = init_sftext(menu->font, opt_name);
     ret->option = init_option_button(menu, ret->rendername, type);
     ret->option->display_function = &display_option_button;
     text_pos = ret->option->pos;
