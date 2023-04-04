@@ -68,6 +68,14 @@ LDFLAGS	=	-L$(LIBPATH) $(LIBFLAGS)
 # Rules                 #
 #########################
 
+.PHONY:	all	clean fclean re					\
+		lib_ lib_clean lib_fclean lib_re	\
+		main_clean main_fclean main_re		\
+		tests_run tests_clean tests_re		\
+		debug_rm	\
+		.h	.hrm	\
+		update
+
 ## Global rules
 all:	lib_ $(BIN_NAME)
 
@@ -127,7 +135,7 @@ tests_re: tests_clean tests_run
 
 
 ## Debug:
-debug_:
+debug_: lib_
 	@echo "make $(LIBNAMES) -C $(LIBPATH) ADDITIONAL_CFLAGS='-g'"
 	@eval "make $(LIBNAMES) -C $(LIBPATH) ADDITIONAL_CFLAGS='-g'"
 	gcc $(SRC) $(CFLAGS) $(LDFLAGS) -g -o debug_$(BIN_NAME)
