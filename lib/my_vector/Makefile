@@ -21,11 +21,15 @@ OBJ	=	$(SRC:.c=.o)
 
 LIBNAME	=	libmy_vector.a
 
+
+
+.PHONY:	all clean fclean re
+
 all:	$(LIBNAME)
 
 $(LIBNAME):	$(OBJ)
 	ar rc $(LIBNAME) $(OBJ)
-	mv $(LIBNAME) ../
+	cp $(LIBNAME) ../
 
 clean:
 	@echo -e "\033[1;3;30m Removing object files\033[0m"
@@ -33,5 +37,6 @@ clean:
 
 fclean:	clean
 	rm -f ../$(LIBNAME)
+	rm -f $(NAME)
 
 re:	fclean all

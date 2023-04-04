@@ -55,11 +55,14 @@ ADDITIONAL_CFLAGS	=
 CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include -L.. -lmy \
 			$(ADDITIONAL_CFLAGS)
 
+
+.PHONY:	all clean fclean re
+
 all:	$(NAME)
 
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
-	mv $(NAME) ../
+	cp $(NAME) ../
 
 clean:
 	@echo -e "\033[1;3;30m Removing object files\033[0m"
@@ -67,5 +70,6 @@ clean:
 
 fclean: clean
 	rm -f ../$(NAME)
+	rm -f $(NAME)
 
 re: fclean all
