@@ -91,6 +91,10 @@ int mega_save_nbr(char *buf, unsigned long long nb, unsigned char base);
 
 /* STRING TOOLS */
 
+
+// Writes a string to standard output, and adds a trailing newline
+void my_puts(char const *str);
+
 // Writes a string to standard error
 void my_putsterr(char const *str);
 

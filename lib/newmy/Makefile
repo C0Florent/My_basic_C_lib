@@ -11,6 +11,7 @@ SRC	=	multi_free.c				\
 		my_sort_str_array.c			\
 		my_str_array_copy.c			\
 		my_str_array_dup.c			\
+		my_puts.c					\
 		my_putsterr.c				\
 		my_fdputs.c					\
 		my_strstr_pos.c				\
