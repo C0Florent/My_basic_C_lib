@@ -359,10 +359,39 @@ Test(my_str_isupper, fail_cases)
     cr_assert(!my_str_isupper("aaaaa"));
 }
 
-Test (my_str_isprintable, normal_test)
+Test(my_str_isprintable, normal_test)
 {
     cr_assert(my_str_isprintable("djfhdsk34~&)") == true);
     cr_assert(my_str_isprintable("fŸ") == false);
     cr_assert(my_str_isprintable("") == true);
     cr_assert(my_str_isprintable("ŝf6") == false);
+}
+
+Test(my_str_isprintable, non_printable_bytes)
+{
+    cr_assert(my_str_isprintable("\04") == false);
+    cr_assert(my_str_isprintable("\01\03\07") == false);
+    cr_assert(my_str_isprintable("\xF1\xE2") == false);
+    cr_assert(my_str_isprintable("\xFF\03") == false);
+}
+
+Test(my_str_isprintable, DEL)
+{
+    cr_assert(my_str_isprintable("\x7F") == false);
+}
+
+Test(my_revstr, basic_test)
+{
+    char *test_string = strdup("Hi there!");
+
+    my_revstr(test_string);
+    cr_assert_str_eq(test_string, "!ereht iH");
+}
+
+Test(my_show_word_array, basic_test, .init = redirect_all_std)
+{
+    char *test_arr[] = {"Hi", "This", "is", "a", "multiline", "sentence", NULL};
+
+    my_show_word_array(test_arr);
+    cr_assert_stdout_eq_str("Hi\nThis\nis\na\nmultiline\nsentence\n");
 }
