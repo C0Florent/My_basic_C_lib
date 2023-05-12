@@ -13,6 +13,11 @@
 // If given a positive shift, this function will move byte by
 // byte each character of the string by `shift` bytes forwards, and
 // reset the first `shift` characters of the string to NUL bytes
+//
+// If given a negative shift, it this function will essentially overwrite
+// the first `shift` bytes of the string with what is written afterwards
+// my_shift_str(str, -n) sort of perfors the same as strcpy(str, str + n),
+// but it's the intended use case (doing it w/ strcpy is undefined behaviour)
 int my_shift_str(char *str, int shift)
 {
     int len = my_strlen(str);

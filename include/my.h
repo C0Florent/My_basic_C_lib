@@ -59,6 +59,15 @@ int my_show_word_array(char * const *tab);
 char **my_str_to_word_array(char const *str);
 char *concat_params(int argc, char **argv);
 int my_str_initialise(char *str, int size);
+
+// If given a positive shift, this function will move byte by
+// byte each character of the string by `shift` bytes forwards, and
+// reset the first `shift` characters of the string to NUL bytes
+//
+// If given a negative shift, it this function will essentially overwrite
+// the first `shift` bytes of the string with what is written afterwards
+// my_shift_str(str, -n) sort of perfors the same as strcpy(str, str + n),
+// but it's the intended use case (doing it w/ strcpy is undefined behaviour)
 int my_shift_str(char *str, int shift);
 bool my_char_is_in_list(char c, char const *str);
 
