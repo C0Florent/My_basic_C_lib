@@ -395,3 +395,44 @@ Test(my_show_word_array, basic_test, .init = redirect_all_std)
     my_show_word_array(test_arr);
     cr_assert_stdout_eq_str("Hi\nThis\nis\na\nmultiline\nsentence\n");
 }
+
+Test(my_shift_str, big_positive_shift)
+{
+    char test_buffer[7] = "Hi";
+    char expected_result[7] = {'\0', '\0', '\0', 'H', 'i', '\0', '\0'};
+
+    my_shift_str(test_buffer, 3);
+
+    cr_assert_arr_eq(test_buffer, expected_result, 7);
+}
+
+Test(my_shift_str, small_positive_shift)
+{
+    char test_buffer[8] = "Hello";
+    char expected_result[8] = {'\0', 'H', 'e', 'l', 'l', 'o', '\0', '\0'};
+
+    my_shift_str(test_buffer, 1);
+
+    cr_assert_arr_eq(test_buffer, expected_result, 7);
+}
+
+Test(my_shift_str, negative_shift)
+{
+    char test_buffer[7] = "--AAA";
+    char expected_result[7] = {'A', 'A', 'A', '\0', '\0', '\0', '\0'};
+
+    my_shift_str(test_buffer, -2);
+
+    cr_assert_arr_eq(test_buffer, expected_result, 7);
+}
+
+Test(my_shift_str, negative_shift_in_heap)
+{
+    char *test_buffer = strdup("--AAA");
+    char expected_result[] = "AAA";
+
+    my_shift_str(test_buffer, -2);
+
+    cr_assert_arr_eq(test_buffer, expected_result, 4);
+    free(test_buffer);
+}
