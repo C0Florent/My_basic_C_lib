@@ -29,7 +29,7 @@ int my_shift_str(char *str, int shift)
         my_str_initialise(str, shift);
     } else {
         shift = -shift;
-        for (int i = 0; i <= len; i++) {
+        for (int i = 0; i <= len - shift; i++) {
             str[i] = str[i + shift];
         }
     }
