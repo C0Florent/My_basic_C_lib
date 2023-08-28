@@ -423,7 +423,12 @@ Test(my_shift_str, negative_shift)
 
     my_shift_str(test_buffer, -2);
 
-    cr_assert_arr_eq(test_buffer, expected_result, 7);
+    // We only test for four bytes, as a call to strcmp would in this case,
+    // since reading beyond the fourth byte of the test buffer would mean
+    // reading beyond its terminating null byte, which makes no real sense
+    // in standard string implementation, so this memory's state
+    // should be left implementation-dependant, thus not tested.
+    cr_assert_arr_eq(test_buffer, expected_result, 4);
 }
 
 Test(my_shift_str, negative_shift_in_heap)
