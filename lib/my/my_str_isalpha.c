@@ -5,25 +5,26 @@
 ** Returns 1 if the string only contains letters
 */
 
+#include <stdbool.h>
 #include "my.h"
 
-int my_char_isalpha(char c)
+bool my_char_isalpha(char c)
 {
     if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
-        return (1);
+        return (true);
     }
-    return (0);
+    return (false);
 }
 
-int my_str_isalpha(char const *str)
+bool my_str_isalpha(char const *str)
 {
     int i;
     int len = my_strlen(str);
 
     for (i = 0; i < len; i++) {
-        if (my_char_isalpha(str[i]) == 0) {
-            return (0);
+        if (!my_char_isalpha(str[i])) {
+            return (false);
         }
     }
-    return (1);
+    return (true);
 }
