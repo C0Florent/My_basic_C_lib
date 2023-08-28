@@ -58,7 +58,7 @@ int my_char_isalpha(char c);
 int my_show_word_array(char * const *tab);
 char **my_str_to_word_array(char const *str);
 char *concat_params(int argc, char **argv);
-int my_str_initialise(char *str, int size);
+void my_str_initialise(char *str, int size);
 
 // If given a positive shift, this function will move byte by
 // byte each character of the string by `shift` bytes forwards, and
