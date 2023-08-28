@@ -39,8 +39,7 @@ char *my_strcapitalize(char *str)
 
     my_charupcase(&str[0]);
     for (int i = 1; i < len; i++) {
-        if (my_char_isnum(str[i - 1]) == 1
-        || my_char_isalpha(str[i - 1]) == 1) {
+        if (my_char_isnum(str[i - 1]) || my_char_isalpha(str[i - 1])) {
             my_charlowcase(&str[i]);
         } else {
             my_charupcase(&str[i]);
