@@ -5,6 +5,7 @@
 ** tells if the input is prime or not
 */
 
+#include <stdbool.h>
 #include "my.h"
 
 int sqrt_roundup(int nb)
@@ -25,22 +26,22 @@ int sqrt_roundup(int nb)
     return (0);
 }
 
-int my_is_prime(int nb)
+bool my_is_prime(int nb)
 {
     int sqrt_nb = sqrt_roundup(nb);
     int i = 2;
 
     if (nb < 2) {
-        return (0);
+        return (false);
     }
     if (nb == 2) {
-        return (1);
+        return (true);
     }
     while (i <= sqrt_nb) {
         if (nb % i == 0) {
-            return (0);
+            return (false);
         }
         i = i + 1;
     }
-    return (1);
+    return (true);
 }

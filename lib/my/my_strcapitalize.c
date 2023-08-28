@@ -6,6 +6,7 @@
 ** and any other letter be a lower case
 */
 
+#include <stdbool.h>
 #include "my.h"
 
 char my_charupcase(char *c)
@@ -24,12 +25,12 @@ char my_charlowcase(char *c)
     return (*c);
 }
 
-int my_char_isnum(char c)
+bool my_char_isnum(char c)
 {
     if (c < '0' || c > '9') {
-        return (0);
+        return (false);
     }
-    return (1);
+    return (true);
 }
 
 char *my_strcapitalize(char *str)
