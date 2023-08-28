@@ -8,17 +8,24 @@
 #include <stdlib.h>
 #include "my.h"
 
+static char *alloc_ret(int argc, char **argv)
+{
+    char *ret;
+    int lengths_sum = 0;
+
+    for (int i = 0; i < argc; i++) {
+        lengths_sum += my_strlen(argv[i]);
+    }
+    ret = malloc(sizeof(char) * (lengths_sum + 1));
+    ret[0] = '\0';
+    return (ret);
+}
+
 char *concat_params(int argc, char **argv)
 {
     int i;
-    char *retstr;
-    int lenmax;
+    char *retstr = alloc_ret(argc, argv);
 
-    for (i = 0; i < argc; i++) {
-        if (my_strlen(argv[i]) > lenmax)
-            lenmax = my_strlen(argv[i]);
-    }
-    retstr = malloc(sizeof(char) * argc * (lenmax + 1));
     for (i = 0; i < argc - 1; i++) {
         my_strcat(retstr, argv[i]);
         my_strcat(retstr, "\n");
