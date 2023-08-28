@@ -51,7 +51,7 @@ int my_char_isnum(char c);
 int my_str_islower(char const *str);
 int my_str_isupper(char const *str);
 int my_str_isprintable(char const *str);
-int my_charcat(char *dest, char c);
+void my_charcat(char *dest, char c);
 char *my_strcat(char *dest, char const *src);
 char *my_strncat(char *dest, char const *src, int n);
 int my_char_isalpha(char c);

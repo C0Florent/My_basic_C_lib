@@ -7,11 +7,10 @@
 
 #include "my.h"
 
-int my_charcat(char *dest, char c)
+void my_charcat(char *dest, char c)
 {
     int len = my_strlen(dest);
 
     dest[len] = c;
     dest[len + 1] = '\0';
-    return (0);
 }
