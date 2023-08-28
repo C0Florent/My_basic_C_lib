@@ -151,7 +151,7 @@ debug_rm:
 ## source files and list them all in $(INCLUDEPATH)/$(BIN_NAME).h
 .h:
 	@mkdir -p $(INCLUDEPATH)
-	@echo -ne "/*\n** EPITECH PROJECT, 2022\n** $(BIN_NAME).h\n**"\
+	@echo -ne "/*\n** EPITECH PROJECT, `date +%Y`\n** $(BIN_NAME).h\n**"\
 		"File description:\n** Makefile-generated header file\n*/\n\n" \
 		> $(INCLUDEPATH)/$(BIN_NAME).h
 	@echo "#ifndef _$(BIN_NAME)_H" >> $(INCLUDEPATH)/$(BIN_NAME).h
