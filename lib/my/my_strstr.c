@@ -20,8 +20,9 @@ char *my_strstr(char *str, char const *to_find)
         return (NULL);
     for (i = 0; i < len1 - len2 + 1; i++) {
         my_strncpy(to_compare, &str[i], len2);
-        if (my_strcmp(to_compare, to_find) == 0)
+        if (my_strcmp(to_compare, to_find) == 0) {
             return (&str[i]);
+        }
     }
     return (NULL);
 }

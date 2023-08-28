@@ -11,7 +11,8 @@ char *my_strcpy(char *dest, char const *src)
 {
     int i = 0;
 
-    for (i = 0; i < my_strlen(src) + 1; i++)
+    for (i = 0; i < my_strlen(src) + 1; i++) {
         dest[i] = src[i];
+    }
     return (dest);
 }

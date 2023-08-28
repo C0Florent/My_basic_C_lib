@@ -16,8 +16,9 @@ char *my_strlowcase(char *str)
     int len = my_strlen(str);
 
     for (i = 0; i < len; i++) {
-        if (str[i] >= 'A' && str[i] <= 'Z')
+        if (str[i] >= 'A' && str[i] <= 'Z') {
             str[i] = str[i] + 'a' - 'A';
+        }
     }
     return (str);
 }

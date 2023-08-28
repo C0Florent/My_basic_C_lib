@@ -7,7 +7,8 @@
 
 int my_str_initialise(char *str, int size)
 {
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++) {
         str[i] = '\0';
+    }
     return (0);
 }

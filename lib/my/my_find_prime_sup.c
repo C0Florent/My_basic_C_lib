@@ -8,8 +8,9 @@
 
 int my_find_prime_sup(int nb)
 {
-    if (my_is_prime(nb) != 1)
+    if (my_is_prime(nb) != 1) {
         return (my_find_prime_sup(nb + 1));
-    else
+    } else {
         return (nb);
+    }
 }

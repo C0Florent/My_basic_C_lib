@@ -13,8 +13,9 @@ int my_str_isnum(char const *str)
     int len = my_strlen(str);
 
     for (i = 0; i < len; i++) {
-        if (str[i] < '0' || str[i] > '9')
+        if (str[i] < '0' || str[i] > '9') {
             return (0);
+        }
     }
     return (1);
 }

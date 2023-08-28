@@ -13,8 +13,9 @@ int my_str_isprintable(char const *str)
     int len = my_strlen(str);
 
     for (i = 0; i < len; i++) {
-        if (str[i] < ' ' || str[i] > '~')
+        if (str[i] < ' ' || str[i] > '~') {
             return (0);
+        }
     }
     return (1);
 }

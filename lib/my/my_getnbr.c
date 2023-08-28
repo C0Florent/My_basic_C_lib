@@ -26,8 +26,9 @@ int sign_counter(char const *str, int *sign)
     int i;
 
     for (i = 0; my_char_isnum(str[i]) == 0 && i < len; i++) {
-        if (str[i] == '-')
+        if (str[i] == '-') {
             *sign = *sign * -1;
+        }
     }
     return (i);
 }
@@ -37,8 +38,9 @@ int read_nbr(char const *str, int first_digit_index, int sign)
     int return_val = 0;
 
     for (int i = first_digit_index; my_char_isnum(str[i]) == 1; i++) {
-        if (add_if_possib(&return_val, (int)(str[i] - '0'), sign) == 84)
+        if (add_if_possib(&return_val, (int)(str[i] - '0'), sign) == 84) {
             return (0);
+        }
     }
     return (return_val);
 }
