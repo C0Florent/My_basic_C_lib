@@ -37,6 +37,5 @@ int mega_put_nbr(long long nb, unsigned char base)
     if (base > 16 || base < 2)
         return (84);
     my_print_nbr_rec(nb, base, &count);
-
     return (count);
 }

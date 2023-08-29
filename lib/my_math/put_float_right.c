@@ -33,13 +33,15 @@ static void format(char *nstr)
 
 void put_float_right(double nb, int precision)
 {
+    int nb_len;
+    char *nstr;
+
     if (precision <= 0) {
         dprintf(2, "put_float_right: refuses precision of zero, sets it to 1");
         precision = 1;
     }
-    int nb_len = precision + 4;
-    char *nstr = malloc(sizeof(char) * (nb_len));
-
+    nb_len = precision + 4;
+    *nstr = malloc(sizeof(char) * (nb_len));
     nstr[nb_len - 1] = '\0';
     sprintf(nstr, "%.*f", precision, nb);
     format(nstr);

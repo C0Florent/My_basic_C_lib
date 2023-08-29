@@ -17,5 +17,4 @@ bool approx_eq(double a, double b, int precision)
     } else {
         return (false);
     }
-
 }

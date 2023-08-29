@@ -12,6 +12,7 @@
 int my_get_di_total_size(long long nb, conv_det_t *details)
 {
     int core_size = my_get_di_core_size(nb, details);
+
     if (core_size > details->width)
         return (core_size);
     else
@@ -22,6 +23,7 @@ int my_get_di_core_size(long long int nb, conv_det_t *details)
 {
     int size = my_get_nbrsize(ABS(nb), 10);
     int precision = details->precision;
+
     if (precision > size)
         size = precision;
     if (nb < 0)

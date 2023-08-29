@@ -27,7 +27,6 @@ static bool init_button(button_t *button, sfVector2f pos,
     sfVector2f size, enum button_type type)
 {
     button->rect = sfRectangleShape_create();
-
     if (button->rect == NULL) {
         write(2, "init_button: could not create rectangle\n", 40);
         free(button);

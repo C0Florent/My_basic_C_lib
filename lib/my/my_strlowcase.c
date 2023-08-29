@@ -8,8 +8,6 @@
 
 #include "my.h"
 
-int my_strlen(const char *);
-
 char *my_strlowcase(char *str)
 {
     int i;

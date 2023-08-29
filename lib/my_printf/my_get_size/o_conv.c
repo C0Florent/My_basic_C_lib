@@ -12,6 +12,7 @@
 int my_get_o_total_size(unsigned long long nb, conv_det_t *details)
 {
     int size = my_get_nbrsize(nb, 8);
+
     if (details->is_alt_form == 1)
         size++;
     if (details->precision > size)
