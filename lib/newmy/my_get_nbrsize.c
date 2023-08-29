@@ -9,9 +9,11 @@ int my_get_nbrsize(unsigned long long nb, int base)
 {
     int size = 0;
 
-    if (base < 2)
+    if (base < 2) {
         return (-84);
-    for (size = 0; nb != 0; size++)
+    }
+    for (size = 0; nb != 0; size++) {
         nb = nb / base;
+    }
     return (size);
 }
