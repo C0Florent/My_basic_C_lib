@@ -5,7 +5,9 @@
 ## Compiles the libmy (the most basic functions) into a libmy.a
 ##
 
-SRC	=	get_file_size.c
+SRC	=	get_file_size.c		\
+		read_from_fd.c		\
+		read_file.c
 
 OBJ	=	$(SRC:.c=.o)
 
