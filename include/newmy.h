@@ -54,6 +54,20 @@ typedef struct impish_string_s {
 } imp_str_t;
 
 
+// Length-based constant character string.
+// The main idea is to get an equivalent for Rust's `&str` type, which
+// is a fixed-length, immutable string which can be used to represent
+// substrings of more generic strings.
+//
+// The string pointed to by `str` must be readable on at least `len`
+// and may contain NUL bytes.
+// Typical use case for this structure should be: getting read-only
+// substrings of (potentially) heap-allocated strings instead of making a new
+// allocation with strndup to get the substring, which would use more memory.
+typedef struct string_slice {
+    char const *str;
+    size_t len;
+} str_slice_t;
 
 
 /* MISCELLANEOUS */
