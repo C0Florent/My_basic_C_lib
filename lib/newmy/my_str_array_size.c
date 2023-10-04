@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <stdlib.h>
 
-unsigned int my_str_array_size(char * const *arr)
+unsigned int my_str_array_size(char *const *arr)
 {
     int i = 0;
 

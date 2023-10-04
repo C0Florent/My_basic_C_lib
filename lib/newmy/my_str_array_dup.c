@@ -17,7 +17,7 @@ static void emergency_free(char **arrdup, unsigned int nb_to_free)
     free(arrdup);
 }
 
-static bool dup_rows(char * const *arr, char **arrdup)
+static bool dup_rows(char *const *arr, char **arrdup)
 {
     unsigned int i = 0;
 
@@ -34,7 +34,7 @@ static bool dup_rows(char * const *arr, char **arrdup)
     return (EXIT_SUCCESS);
 }
 
-char **my_str_array_dup(char * const *arr)
+char **my_str_array_dup(char *const *arr)
 {
     unsigned int size;
     char **ret;

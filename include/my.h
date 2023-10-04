@@ -55,7 +55,7 @@ void my_charcat(char *dest, char c);
 char *my_strcat(char *dest, char const *src);
 char *my_strncat(char *dest, char const *src, int n);
 bool my_char_isalpha(char c);
-int my_show_word_array(char * const *tab);
+int my_show_word_array(char *const *tab);
 char **my_str_to_word_array(char const *str);
 char *concat_params(int argc, char **argv);
 void my_str_initialise(char *str, int size);

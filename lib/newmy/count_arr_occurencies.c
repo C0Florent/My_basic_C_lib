@@ -9,7 +9,7 @@
 #include <stddef.h>
 #include "newmy.h"
 
-int count_arr_occurencies(char c, char * const *arr)
+int count_arr_occurencies(char c, char *const *arr)
 {
     int occurencies = 0;
 

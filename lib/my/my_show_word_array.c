@@ -8,7 +8,7 @@
 
 #include "my.h"
 
-int my_show_word_array(char * const *tab)
+int my_show_word_array(char *const *tab)
 {
     int i;
     int nb_lines = 0;

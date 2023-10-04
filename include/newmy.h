@@ -168,14 +168,14 @@ ssize_t my_fdgetdelims(char **lineptr, size_t *bufsiz_ptr,
 /* STRING ARRAY TOOLS */
 
 // Returns the number of consecutive non-NULL strings from the start of arr
-unsigned int my_str_array_size(char * const *arr);
+unsigned int my_str_array_size(char *const *arr);
 
 // Concatenates an strdup of src at the end of arr,
 // and sets arr's next str to NULL
 void my_str_array_cat(char const *src, char **arr);
 
 //Counts the occurencies of c in the char **arr
-int count_arr_occurencies(char c, char * const *arr);
+int count_arr_occurencies(char c, char *const *arr);
 
 // Sorts in ascending ascii order (bubble sort)
 int my_sort_str_array(char **arr);
@@ -186,7 +186,7 @@ char **my_str_array_copy(char **src, char **dest);
 
 // Name is as explicit as could be.
 // Returns newly allocated str array on success, NULL otherwise
-char **my_str_array_dup(char * const *arr);
+char **my_str_array_dup(char *const *arr);
 
 // Separates replaces all delimitors of `src` with '\0'
 // Takes the chars from `list` as separators if `valid` is false,
