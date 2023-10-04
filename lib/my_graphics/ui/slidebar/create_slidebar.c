@@ -23,8 +23,12 @@ slidebar_t *allocate_slidebar(void)
     return (ret);
 }
 
-void init_slidebar(slidebar_t *sb, sfVector2f sb_pos,
-sfVector2f bar_size, sfVector2f cursor_size)
+void init_slidebar(
+    slidebar_t *sb,
+    sfVector2f sb_pos,
+    sfVector2f bar_size,
+    sfVector2f cursor_size
+)
 {
     sb->center = sb_pos;
     sb->bar_size = bar_size;

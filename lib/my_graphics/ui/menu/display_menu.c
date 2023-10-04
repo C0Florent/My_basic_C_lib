@@ -26,7 +26,10 @@ static bool need_to_display_opts(dropdown_menu_t const *menu)
     return (ret);
 }
 
-static void display_options(sfRenderWindow *window, dropdown_menu_t const *menu)
+static void display_options(
+    sfRenderWindow *window,
+    dropdown_menu_t const *menu
+)
 {
     if (need_to_display_opts(menu) == false) {
         return;

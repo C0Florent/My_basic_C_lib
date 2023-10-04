@@ -12,8 +12,11 @@
 #include <SFML/Graphics/RectangleShape.h>
 #include "my_ui.h"
 
-bool is_mouse_on_button(float mouse_x, float mouse_y,
-button_t const *button)
+bool is_mouse_on_button(
+    float mouse_x,
+    float mouse_y,
+    button_t const *button
+)
 {
     sfFloatRect button_rect = sfRectangleShape_getGlobalBounds(button->rect);
 
@@ -59,8 +62,11 @@ static void handle_on_off_switch(button_t *button,
     }
 }
 
-void update_button_state(button_t *button, sfEvent const *event,
-sfVector2f window_scale)
+void update_button_state(
+    button_t *button,
+    sfEvent const *event,
+    sfVector2f window_scale
+)
 {
     sfVector2f mouse_pos;
 

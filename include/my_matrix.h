@@ -43,14 +43,22 @@ matrix_t *matrix_dup(matrix_t const *src);
 //
 // For other display types, pass a specific display mode as parameter, and the
 // function you want to display the numbers in the matrix
-void show_matrix(matrix_t *m, int precision,
-unsigned char display_mode, void (*display_func)(double, int));
+void show_matrix(
+    matrix_t *m,
+    int precision,
+    unsigned char display_mode,
+    void (*display_func)(double, int)
+);
 
 void transpose(matrix_t *src, matrix_t *dest);
 
 
-void submatrix(matrix_t const *m, unsigned int row, unsigned int col,
-matrix_t *submatrix);
+void submatrix(
+    matrix_t const *m,
+    unsigned int row,
+    unsigned int col,
+    matrix_t *submatrix
+);
 
 
 double determinant(matrix_t const *m);

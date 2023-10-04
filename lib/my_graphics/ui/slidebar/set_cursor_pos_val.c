@@ -9,8 +9,10 @@
 #include "my_graphics.h"
 #include "my_ui.h"
 
-void slidebar_cursor_set_pos_from_mouse_pos(slidebar_t *sb,
-sfMouseButtonEvent const *click_pos)
+void slidebar_cursor_set_pos_from_mouse_pos(
+    slidebar_t *sb,
+    sfMouseButtonEvent const *click_pos
+)
 {
     slidebar_cursor_set_pos(sb, click_pos->x - sb->center.x);
 }

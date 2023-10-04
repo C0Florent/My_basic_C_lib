@@ -46,8 +46,11 @@ static bool init_button(button_t *button, sfVector2f pos,
     return (EXIT_SUCCESS);
 }
 
-button_t *button_create(sfVector2f position, sfVector2f size,
-enum button_type type)
+button_t *button_create(
+    sfVector2f position,
+    sfVector2f size,
+    enum button_type type
+)
 {
     button_t *ret = malloc(sizeof(button_t));
     bool init_ret;

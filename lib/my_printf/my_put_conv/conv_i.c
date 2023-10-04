@@ -12,7 +12,12 @@
 #include "my.h"
 #include "newmy.h"
 
-static int add_sign_or_blank(char *final_str, long long nb, conv_det_t *details)
+// TODO: Add braces to all conditionals
+static int add_sign_or_blank(
+    char *final_str,
+    long long nb,
+    conv_det_t *details
+)
 {
     if (nb < 0 || details->space_flag == 1 || details->plus_flag == 1)
         my_shift_str(final_str, 1);

@@ -77,8 +77,11 @@ static menu_opt_t *init_option(dropdown_menu_t *menu, char const *opt_name,
     return (ret);
 }
 
-void add_menu_option(dropdown_menu_t *menu, char const *opt_name,
-enum button_type type)
+void add_menu_option(
+    dropdown_menu_t *menu,
+    char const *opt_name,
+    enum button_type type
+)
 {
     menu_opt_t *new_opt = init_option(menu, opt_name, type);
 

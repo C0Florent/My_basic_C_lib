@@ -40,8 +40,12 @@ void read_width(int *width, unsigned int *i, char const *conv, va_list *args)
     *i += my_get_nbrsize(*width, 10);
 }
 
-void read_precision(int *precision, unsigned int *i,
-char const *conv, va_list *args)
+void read_precision(
+    int *precision,
+    unsigned int *i,
+    char const *conv,
+    va_list *args
+)
 {
     read_width(precision, i, conv + 1, args);
     (*i)++;

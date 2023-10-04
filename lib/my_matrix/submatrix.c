@@ -10,8 +10,12 @@
 #include <stdbool.h>
 #include "my_matrix.h"
 
-static bool check_errors(matrix_t const *m, unsigned int row, unsigned int col,
-matrix_t *submx)
+static bool check_errors(
+    matrix_t const *m,
+    unsigned int row,
+    unsigned int col,
+    matrix_t *submx
+)
 {
     if (m == NULL || submx == NULL) {
         dprintf(2, "submatrix: matrix (or submatrix) is null\n");
@@ -38,21 +42,25 @@ static unsigned int next(unsigned int current, unsigned int to_avoid)
     }
 }
 
-void submatrix(matrix_t const *m, unsigned int row, unsigned int col,
-matrix_t *submatrix)
+void submatrix(
+    matrix_t const *m,
+    unsigned int row,
+    unsigned int col,
+    matrix_t *submatrix
+)
 {
-    unsigned int matrix_h_index = 0;
-    unsigned int matrix_w_index = 0;
+    unsigned int row_index = 0;
+    unsigned int col_index = 0;
 
     if (check_errors(m, row, col, submatrix) == true) {
         return;
     }
     for (unsigned int i = 0; i < m->height; i = next(i, row)) {
         for (unsigned int j = 0; j < m->width; j = next(j, col)) {
-            submatrix->coords[matrix_h_index][matrix_w_index] = m->coords[i][j];
-            matrix_w_index++;
+            submatrix->coords[row_index][col_index] = m->coords[i][j];
+            col_index++;
         }
-        matrix_h_index++;
-        matrix_w_index = 0;
+        row_index++;
+        col_index = 0;
     }
 }

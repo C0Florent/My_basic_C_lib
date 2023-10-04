@@ -74,7 +74,10 @@ typedef struct button {
 
     // Specify here the function which should be used to display the button
     // This function will be called, when calling `button_display()`
-    void (*display_function)(sfRenderWindow *wndw, struct button const *button);
+    void (*display_function)(
+        sfRenderWindow *wndw,
+        struct button const *button
+    );
 } button_t;
 
 

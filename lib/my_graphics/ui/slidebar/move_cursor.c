@@ -9,8 +9,10 @@
 #include <SFML/Graphics/RectangleShape.h>
 #include "my_ui.h"
 
-static bool is_click_on_cursor(slidebar_t *sb,
-sfMouseButtonEvent const *mouse_pos)
+static bool is_click_on_cursor(
+    slidebar_t *sb,
+    sfMouseButtonEvent const *mouse_pos
+)
 {
     if (mouse_pos->x >= sb->center.x - sb->bar_size.x / 2
     && mouse_pos->x <= sb->center.x + sb->bar_size.x / 2

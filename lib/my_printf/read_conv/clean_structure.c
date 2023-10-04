@@ -21,7 +21,7 @@ static void check_cancelling_flags(conv_det_t *structure)
 void clean_struct(conv_det_t *structure)
 {
     char integer_number[] = {'d', 'i', 'o', 'u', 'x', 'X', '\0'};
-    char float_number[] = {'e', 'E','f', 'F', 'g', 'G', 'a', 'A', '\0'};
+    char float_number[] = {'e', 'E', 'f', 'F', 'g', 'G', 'a', 'A', '\0'};
 
     check_cancelling_flags(structure);
     if (my_char_is_in_list(structure->conversion, &integer_number[0]) == 1) {

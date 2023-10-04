@@ -62,13 +62,19 @@ void poc_button_display(sfRenderWindow *wndw, button_t const *button);
 void frame_reset_button(button_t *button);
 
 // Returns true if the given coordinates are within the button boundary
-bool is_mouse_on_button(float mouse_x, float mouse_y,
-button_t const *button);
+bool is_mouse_on_button(
+    float mouse_x,
+    float mouse_y,
+    button_t const *button
+);
 
 // Function to be called during the sfRenderWindow_pollEvent loop,
 // to update the button's internal state depending on mouse actions
-void update_button_state(button_t *button, sfEvent const *event,
-sfVector2f window_scale);
+void update_button_state(
+    button_t *button,
+    sfEvent const *event,
+    sfVector2f window_scale
+);
 
 
 /////////////////////////////
@@ -102,8 +108,12 @@ typedef enum {
 // Special case if the value is out of range of the newly set bounds with
 // KEEP_VAL mode: the cursor will be set to the closest bound but the value
 // will not be updated (will stay out of range)
-void slidebar_set_bound_values(slidebar_t *sb, float min,
-float max, set_bound_val_mode_t set_mode);
+void slidebar_set_bound_values(
+    slidebar_t *sb,
+    float min,
+    float max,
+    set_bound_val_mode_t set_mode
+);
 
 // Sets the slidebar's cursor position to given pos, which is, in pixels,
 // the relative distance of the cursor's center and the slidebar's center
@@ -111,8 +121,10 @@ void slidebar_cursor_set_pos(slidebar_t *sb, float pos);
 
 // Sets the slidebar's cursor position to the
 // mouse position which is given as parameter
-void slidebar_cursor_set_pos_from_mouse_pos(slidebar_t * sb,
-sfMouseButtonEvent const *click_pos);
+void slidebar_cursor_set_pos_from_mouse_pos(
+    slidebar_t *sb,
+    sfMouseButtonEvent const *click_pos
+);
 
 // Sets the slidebar's value to given value, and
 // updating its graphical position accordingly
@@ -128,8 +140,11 @@ void slidebar_cursor_set_value(slidebar_t *sb, float value);
 
 dropdown_menu_t *create_menu(char const *name, sfFont *font, sfVector2f pos);
 
-void add_menu_option(dropdown_menu_t *menu, char const *option_name,
-enum button_type type);
+void add_menu_option(
+    dropdown_menu_t *menu,
+    char const *option_name,
+    enum button_type type
+);
 
 void destroy_menu(dropdown_menu_t *menu);
 
@@ -138,8 +153,11 @@ void destroy_menu(dropdown_menu_t *menu);
 void frame_reset_menu(dropdown_menu_t *menu);
 
 // Function to be called once per frame, to update the menu's state
-void update_menu(dropdown_menu_t *menu, sfEvent const *event,
-sfVector2f wndw_scale);
+void update_menu(
+    dropdown_menu_t *menu,
+    sfEvent const *event,
+    sfVector2f wndw_scale
+);
 
 void display_option_button(sfRenderWindow *wndw, button_t const *button);
 void display_menu_button(sfRenderWindow *wndw, button_t const *button);

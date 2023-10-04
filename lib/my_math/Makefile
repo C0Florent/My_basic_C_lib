@@ -19,7 +19,7 @@ NAME	=	libmy_math.a
 ## this one to add CFLAGS such as -g or --coverage
 ADDITIONAL_CFLAGS	=
 
-CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include  $(ADDITIONAL_CFLAGS)
+CFLAGS	=	-Wall -Wextra -Wshadow -Werror -I../../include $(ADDITIONAL_CFLAGS)
 
 
 .PHONY:	all clean fclean re

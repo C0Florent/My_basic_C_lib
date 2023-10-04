@@ -9,8 +9,12 @@
 #include <unistd.h>
 #include "my.h"
 
-void my_save_nbr_rec(char *buf, unsigned long long nb,
-unsigned char base, int *count)
+void my_save_nbr_rec(
+    char *buf,
+    unsigned long long nb,
+    unsigned char base,
+    int *count
+)
 {
     const char digits[16] = {'0', '1', '2', '3', '4',
     '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};

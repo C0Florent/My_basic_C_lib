@@ -8,8 +8,12 @@
 #include <unistd.h>
 #include "my_ui.h"
 
-void slidebar_set_bound_values(slidebar_t *sb, float min,
-float max, set_bound_val_mode_t set_mode)
+void slidebar_set_bound_values(
+    slidebar_t *sb,
+    float min,
+    float max,
+    set_bound_val_mode_t set_mode
+)
 {
     sb->min_val = min;
     sb->max_val = max;

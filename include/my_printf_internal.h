@@ -13,8 +13,12 @@
     #include <stdbool.h>
 
 
-int my_save_nbr_rec(char *buf, unsigned long long nb,
-                    unsigned char base, int *count);
+int my_save_nbr_rec(
+    char *buf,
+    unsigned long long nb,
+    unsigned char base,
+    int *count
+);
 int my_save_float_digits(double nb, int precision, char *buf);
 
 typedef struct conversion_details {

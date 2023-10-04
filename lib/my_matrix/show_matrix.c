@@ -16,8 +16,12 @@ static void basic_display(double nb, int prec)
     fflush(stdout);
 }
 
-static void show_one_row(matrix_t *m, int i, int precision,
-void (*display_func)(double, int))
+static void show_one_row(
+    matrix_t *m,
+    int i,
+    int precision,
+    void (*display_func)(double, int)
+)
 {
     display_func(m->coords[i][0], precision);
     for (unsigned int j = 1; j < m->width; j++) {
@@ -26,8 +30,12 @@ void (*display_func)(double, int))
     }
 }
 
-void show_matrix(matrix_t *m, int precision,
-unsigned char display_mode, void (*display_func)(double, int))
+void show_matrix(
+    matrix_t *m,
+    int precision,
+    unsigned char display_mode,
+    void (*display_func)(double, int)
+)
 {
     if (display_mode == 0 || display_func == NULL) {
         display_func = &basic_display;

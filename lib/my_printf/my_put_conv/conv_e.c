@@ -52,8 +52,12 @@ static int add_exponent(char *final_str, int exponent)
     return (0);
 }
 
-static int finish_conv_e(char *final_str, double nb, conv_det_t *details,
-                            int exponent)
+static int finish_conv_e(
+    char *final_str,
+    double nb,
+    conv_det_t *details,
+    int exponent
+)
 {
     add_decimal_dot(final_str, details);
     add_sign_or_blank(final_str, nb, details);
